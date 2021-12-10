@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: "http://zattona-api.herokuapp.com",
+  apiUrl: "https://zattona-api.herokuapp.com",
 };
