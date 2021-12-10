@@ -2,19 +2,20 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { ApiMessage } from '../models/models';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ApiService {
-    API_URL = "";
+    API_URL = environment.apiUrl;
     
     constructor(
         private http: HttpClient
     ) {
         // this.API_URL = environment.apiUrl;
-        this.API_URL = 'http://127.0.0.1:8090';
+        // this.API_URL = 'http://127.0.0.1:8090';
     }
 
     private formatErrors(error: any) {
