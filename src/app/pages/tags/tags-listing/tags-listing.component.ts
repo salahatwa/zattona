@@ -1,13 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { CategoryService } from "src/app/pages/categories/shared/category.service";
 import { NgxUiLoaderService } from "ngx-ui-loader";
 import { combineLatest } from "rxjs/internal/observable/combineLatest";
-import { SeoService } from "src/app/shared/services/seo.service";
-import { CommanService } from "src/app/shared/services/comman.service";
-import { TagService } from "src/app/core/services/tag.service";
 import { finalize } from "rxjs/operators";
+import { TagService } from "src/app/core/services/tag.service";
 import { Constants } from "src/app/shared/helpers/constants";
+import { CommanService } from "src/app/shared/services/comman.service";
+import { SeoService } from "src/app/shared/services/seo.service";
 
 @Component({
   selector: "app-tags-listing",
@@ -32,6 +31,7 @@ export class TagsListingComponent implements OnInit {
   firstPost: any;
   tagsList: any = [];
   ngOnInit() {
+    // this.seoService.createLinkForCanonicalURL();
     combineLatest([this.route.paramMap, this.route.queryParamMap]).subscribe(
       ([pathParams, queryParams]) => {
 

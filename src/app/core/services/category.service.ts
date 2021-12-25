@@ -5,7 +5,7 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { CustomHttpUrlEncodingCodec, PagePostListVO } from '../models/models';
+import { ApiMessage, CategoryPosts, CustomHttpUrlEncodingCodec } from '../models/models';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -21,9 +21,6 @@ export class CategoryService {
      * 
      * @param more more
      * @param sort 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     * Array<CategoryDTO>
      */
     public listCategories(more?: boolean, sort?: Array<string>): Observable<any> {
         let queryParameters = new HttpParams({ encoder: new CustomHttpUrlEncodingCodec() });
@@ -48,10 +45,8 @@ export class CategoryService {
      * @param page 
      * @param size 
      * @param sort 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
      */
-    public listPostsBy(slug: string, page?: number, size?: number, sort?: Array<string>): Observable<PagePostListVO> {
+    public listPostsBy(slug: string, page?: number, size?: number, sort?: Array<string>): Observable<ApiMessage<CategoryPosts>> {
 
         if (slug === null || slug === undefined) {
             throw new Error('Required parameter slug was null or undefined when calling listPostsByUsingGET.');

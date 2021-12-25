@@ -1,23 +1,24 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
-import { ConfigrationsService } from "src/app/core/services/api";
-
-import { PostService } from "../../../pages/posts/shared/post.service";
+import { ConfigrationsService, UserService } from "src/app/core/services/api";
+import { Constants } from "../../helpers/constants";
 import { LocalStorageService } from "../../services/local-storage.service";
-import { UserService } from "../../services/user.service";
+
 
 @Component({
   selector: "app-footer",
   templateUrl: "./footer.component.html",
   styleUrls: ["./footer.component.scss"],
 })
-export class FooterComponent implements OnInit,OnDestroy {
+export class FooterComponent implements OnInit, OnDestroy {
+  emailPattern = Constants.EMAIL_PATTERN;
+
   subscribtion: Subscription;
   constructor(
     private userService: UserService,
     private configService: ConfigrationsService,
     private localStorageService: LocalStorageService
-  ) {}
+  ) { }
   featuredPosts: any = [];
   ngOnInit(): void {
     this.getFeaturedPosts();
@@ -27,20 +28,16 @@ export class FooterComponent implements OnInit,OnDestroy {
       this.subscribtion.unsubscribe();
   }
 
-  error:any = '';
-  success:any = '';
+  error: any = '';
+  success: any = '';
   addSubscribe(email) {
-    let reqData = {
-      email: email,
-    };
-    this.userService.addSubscribe(reqData).subscribe((response) => {
-      
+    this.userService.subscribe(email).subscribe((response) => {
       this.error = '';
-      this.success='Verfication mail sent,please verify...'
-    },err=>{
-      
-      if(err.error.error.code===11000){
-        this.error='Email adresss already exists!'
+      this.success = 'Verfication mail sent,please verify...'
+    }, err => {
+
+      if (err.error.error.code === 11000) {
+        this.error = 'Email adresss already exists!'
       }
     });
   }

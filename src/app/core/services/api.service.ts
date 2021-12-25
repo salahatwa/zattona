@@ -20,7 +20,7 @@ export class ApiService {
 
     private formatErrors(error: any) {
         let errorMsg: ApiMessage<any> = error?.error;
-        return throwError(errorMsg.message);
+        return throwError(errorMsg?.message);
     }
 
 

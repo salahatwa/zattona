@@ -6,11 +6,14 @@ import {
 } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
-import { PostDetailVO } from "src/app/core/models/models";
+import { NgxUiLoaderService } from "ngx-ui-loader";
+import { finalize } from "rxjs/operators";
+import { UserService } from "src/app/core/services/api";
 import { PostService } from "src/app/core/services/post.service";
 import { Constants } from "src/app/shared/helpers/constants";
 import { HighlightService } from "src/app/shared/services/highlight.service";
 import { SeoService } from "src/app/shared/services/seo.service";
+import { PostDetailVO } from "./../../../core/models/models";
 
 
 @Component({
@@ -25,14 +28,15 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
     private postService: PostService,
     private highlightService: HighlightService,
     private seoService: SeoService,
+    private userService: UserService,
+    private ngxService: NgxUiLoaderService
   ) { }
   post: PostDetailVO;
   highlighted: boolean = false;
 
   hideme: any = {};
   relatedPosts: any = [];
-  emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  // defaultImage = "https://via.placeholder.com/700x400.png?text=Tutscoder";
+  emailPattern = Constants.EMAIL_PATTERN;
   defaultImage = Constants.DEFAULT_IMG;
   /**
    * Highlight blog post when it's ready
@@ -47,28 +51,22 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
   ngOnInit() {
     this.route.params.subscribe((params) => {
 
-      this.postService.getByUsingSlug(params["slug"], false, true).subscribe((post) => {
+      this.ngxService.start();
+      this.postService.getByUsingSlug(params["slug"], false, true).pipe(finalize(() => {
+        this.ngxService.stop();
+      })).subscribe((post) => {
         this.post = post?.data;
 
         this.seoService.setMetaTags({
           title: `${this.post.title} ` + Constants.SITE_PREFIX,
           description: `${this.post?.metaDescription}`,
+          image: `${this.post?.thumbnail}`,
         });
-        this.getRelatedPosts();
       });
     });
   }
 
-  private getRelatedPosts() {
-    // let reqData = {
-    //   _id: this.post._id,
-    //   categories: this.post.categories.map((value) => value._id),
-    // };
-    // this.postService.getRelatedPosts(reqData).subscribe((response) => {
-    //   this.relatedPosts = response;
 
-    // });
-  }
 
   commentData: any = {};
   replyData: any = {};
@@ -101,12 +99,9 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
     if (form.invalid) {
       return;
     }
-    console.log(email);
-    let reqData = {
-      email: email,
-    };
-    /*   this.userService.addSubscribe(reqData).subscribe((response) => {
+
+    this.userService.subscribe(email).subscribe((response) => {
       console.log(response);
-    }); */
+    });
   }
 }

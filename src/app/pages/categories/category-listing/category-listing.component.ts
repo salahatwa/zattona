@@ -32,16 +32,11 @@ export class CategoryListingComponent implements OnInit {
   defaultImage = Constants.DEFAULT_IMG;
 
   ngOnInit() {
+    // this.seoService.createLinkForCanonicalURL();
     combineLatest([this.route.paramMap, this.route.queryParamMap]).subscribe(
       ([pathParams]) => {
 
         this.category = pathParams.get("catId");
-
-        this.seoService.setMetaTags({
-          title: `${this.commanService.capitalizeFirstLetter(
-            this.category
-          )} `+Constants.SITE_PREFIX,
-        });
 
         this.getPage(0);
       }
@@ -57,10 +52,18 @@ export class CategoryListingComponent implements OnInit {
     this.categoryService.listPostsBy(this.category, this.page.currentPage, this.page.itemsPerPage).pipe(finalize(() => {
       this.ngxService.stop();
     })).subscribe((response) => {
-      this.posts = response?.data?.content;
+
+      this.seoService.setMetaTags({
+        title: `${this.commanService.capitalizeFirstLetter(
+          this.category
+        )} ` + Constants.SITE_PREFIX,
+        description: response?.data?.category?.description,
+      });
+
+      this.posts = response?.data?.posts?.content;
       this.firstPost = this.posts[0];
-      this.page.totalItems = response?.data?.total;
-      this.page.currentPage = response?.data?.page + 1;
+      this.page.totalItems = response?.data?.posts?.total;
+      this.page.currentPage = response?.data?.posts?.page + 1;
     });
   }
 

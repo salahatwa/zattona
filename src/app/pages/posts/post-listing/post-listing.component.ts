@@ -27,6 +27,7 @@ export class PostListingComponent implements OnInit {
   defaultImage = Constants.DEFAULT_IMG;
 
   ngOnInit() {
+    // this.seoService.createLinkForCanonicalURL();
     this.seoService.setMetaTags({
       title: `${this.commanService.capitalizeFirstLetter("All Posts")} `+Constants.SITE_PREFIX,
     });

@@ -1,12 +1,11 @@
-import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { CategoriesComponent } from "./categories.component";
-import { CategoryListingComponent } from "./category-listing/category-listing.component";
+import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { CategoryService } from "./shared/category.service";
-import { SidebarModule } from "../../shared/modules/sidebar.module";
 import { LazyLoadImageModule } from "ng-lazyload-image";
 import { NgxPaginationModule } from "ngx-pagination";
+import { SidebarModule } from "../../shared/modules/sidebar.module";
+import { CategoriesComponent } from "./categories.component";
+import { CategoryListingComponent } from "./category-listing/category-listing.component";
 
 
 const routes: Routes = [
@@ -23,7 +22,7 @@ const routes: Routes = [
 ];
 @NgModule({
   declarations: [CategoriesComponent, CategoryListingComponent],
-  providers: [CategoryService],
+  providers: [],
   imports: [
     CommonModule,
     SidebarModule,
@@ -32,4 +31,4 @@ const routes: Routes = [
     NgxPaginationModule
   ],
 })
-export class CategoriesModule {}
+export class CategoriesModule { }

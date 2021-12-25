@@ -1,7 +1,9 @@
-import { Component } from "@angular/core";
-import { Router } from '@angular/router';
+import { DOCUMENT } from "@angular/common";
+import { Component, Inject } from "@angular/core";
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from "rxjs/operators";
 import { ConfigrationsService } from "./core/services/api";
-import { CategoryService } from "./pages/categories/shared/category.service";
+import { SeoService } from "./shared/services/seo.service";
 import { SessionStorageService } from "./shared/services/session-storage.service";
 
 @Component({
@@ -12,12 +14,20 @@ import { SessionStorageService } from "./shared/services/session-storage.service
 export class AppComponent {
 
 
-  constructor(public router: Router, private configService: ConfigrationsService, private sessionStorageService: SessionStorageService) { }
+  constructor(@Inject(DOCUMENT) private document: any, private seoService: SeoService, private router: Router, private configService: ConfigrationsService, private sessionStorageService: SessionStorageService) { }
 
   ngOnInit() {
-
+    this.updateCanonical();
     this.init();
+  }
 
+  private updateCanonical() {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+    )
+      .subscribe(() => {
+        this.seoService.createLinkForCanonicalURL(this.document.location.origin + this.router.url);
+      })
   }
 
   title = "nodeblog";
@@ -30,7 +40,7 @@ export class AppComponent {
       );
       console.log(result);
       this.configService.sendData(result);
-     
+
     } else {
 
       this.configService.init().subscribe((data) => {

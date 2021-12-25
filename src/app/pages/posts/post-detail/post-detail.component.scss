@@ -441,37 +441,6 @@ select {
   line-height: 19px;
 }
 
-// Buy me Coffee box
-.after-post-box {
-  background-color: #dff9e1;
-  padding: 25px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  border: 5px dashed #538756;
-  color: #000;
-  width: 100%;
-
-  h2 {
-    font-size: 17px;
-    font-weight: 600;
-    text-align: center;
-    padding: 0px 10px 20px 10px;
-  }
-
-  p {
-    line-height: 32px;
-    font-size: 20px;
-    margin-top: 5px;
-    margin-bottom: 30px;
-    font-weight: 400;
-    color: #666;
-
-    img {
-      width: 40%;
-    }
-  }
-}
-
 
 
 @media (max-width: 767px) {

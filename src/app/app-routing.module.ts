@@ -1,14 +1,13 @@
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-
-import { TermsComponent } from "./pages/terms/terms.component";
-import { PrivacyComponent } from "./pages/privacy/privacy.component";
-import { PageNotFoundComponent } from "./pages/page-not-found/page-not-found.component";
-import { ContactComponent } from "./pages/contact/contact.component";
-import { VerificationComponent } from "./pages/verification/verification.component";
-import { DealsComponent } from "./pages/deals/deals.component";
+import { RouterModule, Routes } from "@angular/router";
 import { AboutComponent } from "./pages/about/about.component";
+import { ContactComponent } from "./pages/contact/contact.component";
+import { PageNotFoundComponent } from "./pages/page-not-found/page-not-found.component";
+import { PrivacyComponent } from "./pages/privacy/privacy.component";
+import { TermsComponent } from "./pages/terms/terms.component";
+import { VerificationComponent } from "./pages/verification/verification.component";
 import { SitemapComponent } from "./sitemap/sitemap.component";
+
 
 const routes: Routes = [
   {
@@ -29,22 +28,12 @@ const routes: Routes = [
     path: "tag",
     loadChildren: () => import("./pages/tags/tags.module").then((m) => m.TagsModule),
   },
-  {
-    path: "snippets",
-    loadChildren: () =>
-      import("./pages/snippets/snippets.module").then((m) => m.SnippetsModule),
-  },
-  {
-    path: "interview-questions",
-    loadChildren: () =>
-      import("./pages/questions/questions.module").then((m) => m.QuestionsModule),
-  },
+
   {
     path: "resources",
     loadChildren: () =>
       import("./pages/resources/resources.module").then((m) => m.ResourcesModule),
   },
-  
   {
     path: "contact",
     component: ContactComponent,
@@ -56,10 +45,6 @@ const routes: Routes = [
   {
     path: "about",
     component: AboutComponent,
-  },
-  {
-    path: "deals",
-    component: DealsComponent,
   },
   {
     path: "verify/:token",
@@ -94,7 +79,7 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
 
 export const routedComponents = [
   TermsComponent,

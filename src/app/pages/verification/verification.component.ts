@@ -2,7 +2,7 @@ import { Component, Injector, OnInit, PLATFORM_ID } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 
 import { isPlatformBrowser } from "@angular/common";
-import { UserService } from "../../shared/services/user.service";
+import { UserService } from "./../../core/services/api";
 
 @Component({
   selector: "app-verification",

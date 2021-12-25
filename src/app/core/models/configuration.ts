@@ -1,3 +1,5 @@
+import { Author } from "./shared.model";
+
 export interface ConfigurationParameters {
     apiKeys?: { [key: string]: string };
     username?: string;
@@ -77,4 +79,26 @@ export class Configuration {
         const jsonMime: RegExp = new RegExp('^(application\/json|[^;/ \t]+\/[^;/ \t]+[+]json)[ \t]*(;.*)?$', 'i');
         return mime != null && (jsonMime.test(mime) || mime.toLowerCase() === 'application/json-patch+json');
     }
+}
+
+
+
+export interface ThemeProperty { 
+    activated?: boolean;
+    author?: Author;
+    branch?: string;
+    description?: string;
+    folderName?: string;
+    hasOptions?: boolean;
+    id?: string;
+    logo?: string;
+    name?: string;
+    postMetaField?: Array<string>;
+    repo?: string;
+    require?: string;
+    screenshots?: string;
+    sheetMetaField?: Array<string>;
+    themePath?: string;
+    version?: string;
+    website?: string;
 }

@@ -1,4 +1,4 @@
-<section id="main" class="margin-top-30" [hidden]="!post">
+<section id="main" class="block-wrapper" [hidden]="!post">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-8">
@@ -42,7 +42,7 @@
                     show="8"
                     image="https://loremflickr.com/320/240"
                   ></share-buttons>
-                  
+
                   <div class="about-image">
                     <img
                       class="
@@ -54,9 +54,10 @@
                       "
                       [defaultImage]="defaultImage"
                       [lazyLoad]="post?.thumbnail"
+                      [alt]="post?.title"
                       width="700px"
                       height="400px"
-                      [alt]="post?.title"
+                     
                     />
                   </div>
 
@@ -140,10 +141,7 @@
                               Must be valid email format!
                             </div>
                           </div>
-                          <!--  <div id="mce-responses" class="clear">
-                            <div class="response" id="mce-error-response" style="display:none"></div>
-                            <div class="response" id="mce-success-response" style="display:none"></div>
-                          </div> -->
+
                           <input
                             type="submit"
                             value="Subscribe"
@@ -163,7 +161,7 @@
             <div class="row">
               <div class="after-post-box">
                 <h2>
-                  If You Appreciate What We Do Here On GenHub, You Should
+                  If You Appreciate What We Do Here On Zattona, You Should
                   Consider:
                 </h2>
 
@@ -178,7 +176,7 @@
                     target="_blank"
                     ><img
                       class="rounded"
-                      alt="Support Us"
+                      alt="How to Support zattona.com"
                       src="./assets/images/coffee.png"
                   /></a>
                 </p>
@@ -191,35 +189,60 @@
             </div>
           </div>
 
-          <!-- <div class="col-xs-12 col-sm-12 col-xs-12">
+          <div *ngIf="post?.nextPost||post?.prevPost" class="col-xs-12 col-sm-12 col-xs-12">
             <div class="row">
               <div id="related-posts">
                 <div class="related-post-title">
                   <h3>You may also like</h3>
                 </div>
                 <div class="related-posts-list">
-                  <div class="related-item" *ngFor="let post of relatedPosts">
+                  <div *ngIf="post?.nextPost" class="related-item">
                     <a
                       target="_blank"
-                      routerLink="/post/{{ post?.slug }}"
+                      routerLink="/post/{{ post?.nextPost?.slug }}"
                       class="post-thumb"
                     >
                       <img
                         width="390"
                         height="220"
-                        [src]="post?.featureImage?.url"
-                        [alt]="post?.title"
+                        [alt]="post?.nextPost?.title"
+                        [defaultImage]="defaultImage"
+                        [lazyLoad]="post?.nextPost?.thumbnail"
                     /></a>
                     <h3 class="post-title">
-                      <a routerLink="/post/{{ post?.slug }}" target="_blank">{{
-                        post?.title
-                      }}</a>
+                      <a
+                        routerLink="/post/{{ post?.nextPost?.slug }}"
+                        target="_blank"
+                        >{{ post?.nextPost?.title }}</a
+                      >
+                    </h3>
+                  </div>
+
+                  <div *ngIf="post?.prevPost" class="related-item">
+                    <a
+                      target="_blank"
+                      routerLink="/post/{{ post?.prevPost?.slug }}"
+                      class="post-thumb"
+                    >
+                      <img
+                        width="390"
+                        height="220"
+                        [defaultImage]="defaultImage"
+                        [lazyLoad]="post?.prevPost?.thumbnail"
+                        [alt]="post?.prevPost?.title"
+                    /></a>
+                    <h3 class="post-title">
+                      <a
+                        routerLink="/post/{{ post?.prevPost?.slug }}"
+                        target="_blank"
+                        >{{ post?.prevPost?.title }}</a
+                      >
                     </h3>
                   </div>
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
 
           <!-- <div class="col-xs-12 col-sm-12 col-xs-12">
             <div class="row">

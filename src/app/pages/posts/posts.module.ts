@@ -18,7 +18,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 
 const customConfig: ShareButtonsConfig = {
   include: ['facebook', 'twitter', 'pinterest','whatsapp','tumblr','reddit','telegram','email'],
-  twitterAccount: 'tutscoder'
+  twitterAccount: 'zattona'
 }
 
 const routes: Routes = [

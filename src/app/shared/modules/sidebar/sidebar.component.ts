@@ -1,10 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { report } from "process";
 import { Subscription } from "rxjs";
 import { ConfigrationsService } from "src/app/core/services/api";
 import { TagService } from "src/app/core/services/tag.service";
-import { CategoryService } from "src/app/pages/categories/shared/category.service";
-import { PostService } from "src/app/pages/posts/shared/post.service";
 import { LocalStorageService } from "../../services/local-storage.service";
 
 @Component({
@@ -18,7 +15,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   constructor(
     private configService: ConfigrationsService,
-    private categoryService: CategoryService,
     private tagService: TagService,
     private localStorageService: LocalStorageService
   ) { }
@@ -26,12 +22,10 @@ export class SidebarComponent implements OnInit, OnDestroy {
   categories: any = [];
   tagsList: any = [];
 
-  // defaultImage = "https://via.placeholder.com/400x200.png?text=Tutscoder";
   defaultImage = "./assets/images/400x200.png";
 
   ngOnInit() {
     this.getFeaturedPosts();
-    this.getAllCategory();
     this.getAllTags();
   }
 
@@ -64,21 +58,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   }
 
-  private getAllCategory() {
-    if (this.localStorageService.getLocalStorage("categories")) {
-      this.categories = JSON.parse(
-        this.localStorageService.getLocalStorage("categories")
-      );
-    } else {
-      this.categoryService.getAllCateogry().subscribe((data) => {
-        this.categories = data;
-        this.localStorageService.setLocalStorage(
-          "categories",
-          JSON.stringify(data)
-        );
-      });
-    }
-  }
 
   private getAllTags() {
     if (this.localStorageService.getLocalStorage("tags")) {

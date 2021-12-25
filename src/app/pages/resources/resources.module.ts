@@ -1,11 +1,18 @@
-import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { ResourcesComponent } from "./resources.component";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
-import { ToolsComponent } from "./tools/tools.component";
-import { CoursesComponent } from "./courses/courses.component";
+import { NgxKjuaModule } from "src/app/shared/modules/ngx-kjua/ngx-kjua.module";
+import { TabsModule } from "src/app/shared/modules/tab/tabs.module";
 import { BooksComponent } from "./books/books.component";
-import { DevelopmentComponent } from './development/development.component';
+import { CoursesComponent } from "./courses/courses.component";
+import { LinksComponent } from "./links/links.component";
+import { ResourcesComponent } from "./resources.component";
+import { CodeGeneratorComponent } from "./tools/code-generator/code-generator.component";
+import { QrGeneratorComponent } from './tools/qr-code-generator/qr-generator.component';
+import { ToolsComponent } from './tools/tools.component';
+import { GetIpDetailsComponent } from './tools/ip-details/get-ip-details.component';
+import { LazyLoadImageModule } from "ng-lazyload-image";
 
 const routes: Routes = [
   {
@@ -13,8 +20,8 @@ const routes: Routes = [
     component: ResourcesComponent,
     children: [
       {
-        path: "tools",
-        component: ToolsComponent,
+        path: "links",
+        component: LinksComponent,
       },
       {
         path: "courses",
@@ -25,8 +32,29 @@ const routes: Routes = [
         component: BooksComponent,
       },
       {
-        path: "devlopment-tools",
-        component: DevelopmentComponent,
+        path: "tools",
+        // component: ResourcesComponent,
+        children: [
+          {
+            path: "",
+            component: ToolsComponent,
+          },
+          {
+            path: "code-generator",
+            component: CodeGeneratorComponent,
+          },
+          {
+            path: "qr-generator",
+            component: QrGeneratorComponent,
+          },
+
+          {
+            path:'ip-details',
+            component:GetIpDetailsComponent
+          }
+
+        ]
+
       },
     ],
   },
@@ -35,11 +63,14 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     ResourcesComponent,
-    ToolsComponent,
+    LinksComponent,
     CoursesComponent,
     BooksComponent,
-    DevelopmentComponent,
+    ToolsComponent,
+    CodeGeneratorComponent,
+    QrGeneratorComponent,
+    GetIpDetailsComponent
   ],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, FormsModule, TabsModule,NgxKjuaModule,LazyLoadImageModule, RouterModule.forChild(routes)],
 })
-export class ResourcesModule {}
+export class ResourcesModule { }

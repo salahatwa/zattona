@@ -1,0 +1,112 @@
+<section id="main" class="block-wrapper">
+  <div class="container">
+     <!-- Sign up card -->
+     <div class="card person-card">
+        <div class="card-body">
+            <!-- Sex image -->
+            <img id="img_sex" class="person-img"
+                src="https://visualpharm.com/assets/217/Life%20Cycle-595b40b75ba036ed117d9ef0.svg">
+            <h2 id="who_message" class="card-title">Who are you ?</h2>
+            <!-- First row (on medium screen) -->
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <label for="type" class="col-form-label">IP Type</label>
+                    <input id="type" type="text" class="form-control" readonly [value]="ipDetails?.type">
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="ip" class="col-form-label">IP</label>
+                    <input id="ip" type="text" class="form-control" readonly [value]="ipDetails?.ip">
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="zip" class="col-form-label">Zip code</label>
+                    <input id="zip" type="text" class="form-control" readonly [value]="ipDetails?.zip">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6" style="padding:0.5em;">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Your location  <span>
+                        <img
+                        [defaultImage]="'./assets/images/defaultFlag.jpg'"
+                        [lazyLoad]="ipDetails?.location?.country_flag"
+                        [alt]="ipDetails?.country_name+' Flag'"
+                         style="width:45px;height:30px"/>
+                    </span></h2>
+                  <div class="row form-group ">
+                    <div class="col-8">
+                        <label for="country" class="col-form-label">Country</label>
+                        <input type="text" class="form-control" id="country" readonly [value]="ipDetails?.country_name">
+                    </div>
+                    <div class="col-4">
+                        <label for="country_code" class="col-form-label">Code</label>
+                        <input type="text" class="form-control" id="country_code" readonly [value]="ipDetails?.country_code">
+                    </div>
+                  </div>
+                    <div class="form-group">
+                        <label for="city" class="col-form-label">City</label>
+                        <input type="text" class="form-control" id="city" readonly [value]="ipDetails?.city">
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-8">
+                            <label for="continent_name" class="col-form-label">Continent</label>
+                            <input type="text" class="form-control" id="continent_name" readonly [value]="ipDetails?.continent_name">
+                        </div>
+                        <div class="col-4">
+                            <label for="continent_code" class="col-form-label">Code</label>
+                            <input type="text" class="form-control" id="continent_code" readonly [value]="ipDetails?.continent_code">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="latitude" class="col-form-label">Latitude</label>
+                        <input type="text" class="form-control" id="latitude" readonly [value]="ipDetails?.latitude">
+                    </div>
+                    <div class="form-group">
+                        <label for="longitude" class="col-form-label">Longitude</label>
+                        <input type="text" class="form-control" id="longitude" readonly [value]="ipDetails?.longitude">
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+        <div class="col-md-6" style="padding:0.5em;">
+            <div class="card"> 
+                <div class="card-body">
+                    <h2 class="card-title">Country Info</h2>
+                    <div class="form-group">
+                        <label for="Capital" class="col-form-label">Capital</label>
+                        <input type="text" class="form-control" id="Capital" readonly [value]="ipDetails?.location?.capital">
+                    </div>
+                    <div class="form-group">
+                        <label for="calling_code" class="col-form-label">Calling code</label>
+                        <input type="text" class="form-control" id="calling_code" readonly [value]="ipDetails?.location?.calling_code">
+                    </div>
+
+                    <div class="row form-group " *ngFor="let lang of ipDetails?.location?.languages">
+                        <div class="col-3" >
+                            <label for="lcode" class="col-form-label">Lang</label>
+                            <input type="text" class="form-control" id="lcode" readonly [value]="lang?.code">
+                        </div>
+                        <div class="col-4">
+                            <label for="lname" class="col-form-label">Name</label>
+                            <input type="text" class="form-control" id="lname" readonly [value]="lang?.name">
+                        </div>
+                        <div class="col-5">
+                            <label for="lnative" class="col-form-label">Native</label>
+                            <input type="text" class="form-control" id="lnative" readonly [value]="lang?.native">
+                        </div>
+                      </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div style="margin-top: 1em;">
+        <button type="button" class="btn btn-primary btn-lg btn-block">Sign up !</button>
+    </div> -->
+
+  </div>
+</section>

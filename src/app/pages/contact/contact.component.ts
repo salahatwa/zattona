@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
-import { UserService } from "../../shared/services/user.service";
+import { SeoService } from "src/app/shared/services/seo.service";
+import { UserService } from "./../../core/services/api";
 
 
 @Component({
@@ -11,9 +12,11 @@ import { UserService } from "../../shared/services/user.service";
 export class ContactComponent implements OnInit {
   contact: any = {};
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService,private seoService:SeoService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.seoService.createLinkForCanonicalURL();
+  }
 
   contactUs(contactForm: NgForm, data) {
     if (contactForm.invalid) {

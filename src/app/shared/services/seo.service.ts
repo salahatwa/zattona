@@ -1,4 +1,5 @@
-import { Injectable } from "@angular/core";
+import { DOCUMENT } from "@angular/common";
+import { Inject, Injectable } from "@angular/core";
 import { Meta, Title } from "@angular/platform-browser";
 import { Router } from "@angular/router";
 import { Constants } from "../helpers/constants";
@@ -6,18 +7,21 @@ import { Constants } from "../helpers/constants";
   providedIn: "root",
 })
 export class SeoService {
+
+
   constructor(
     private title: Title,
     private meta: Meta,
-    private router: Router
-  ) {}
+    private router: Router,
+    @Inject(DOCUMENT) private dom,
+  ) { }
 
   setMetaTags(config?: any) {
     config = {
-      title: Constants.SITE_PREFIX+` - Programming Blog & Web Development Tutorials`,
+      title: Constants.SITE_PREFIX + ` - Programming Blog & Web Development Tutorials`,
       description: `Learn Web Development, NodeJs, Angular, JavaScript, jQuery ,Ajax,ReactJs, WordPress with GenHub tutorials`,
       image: `https://genhub-blog.herokuapp.com/assets/icons/apple-touch-icon.png`,
-      url: `https://genhub-blog.herokuapp.com/${this.router.url}`,
+      url: `${this.dom.location.origin}${this.router.url}`,
       ...config,
     };
 
@@ -29,17 +33,15 @@ export class SeoService {
 
     // Twitter
     this.meta.updateTag({ name: "twitter:card", content: "summary" });
-    this.meta.updateTag({ name: "twitter:site", content: `@genhub` });
+    this.meta.updateTag({ name: "twitter:site", content: `@zattona` });
+    this.meta.updateTag({ name: "twitter:creator", content: `@zattona` });
     this.meta.updateTag({ name: "twitter:title", content: config.title });
-    this.meta.updateTag({
-      name: "twitter:description",
-      content: config.description,
-    });
+    this.meta.updateTag({ name: "twitter:description", content: config.description });
     this.meta.updateTag({ name: "twitter:image", content: config.image });
 
     // Facebook and other social sites
     this.meta.updateTag({ property: "og:type", content: "article" });
-    this.meta.updateTag({ property: "og:site_name", content: `GenHub` });
+    this.meta.updateTag({ property: "og:site_name", content: Constants.SITE_TITLE });
     this.meta.updateTag({ property: "og:title", content: config.title });
     this.meta.updateTag({
       property: "og:description",
@@ -47,9 +49,20 @@ export class SeoService {
     });
     this.meta.updateTag({ property: "og:image", content: config.image });
     this.meta.updateTag({ property: "og:url", content: config.url });
-   /*  this.meta.updateTag({
-      property: "fb:app_id",
-      content: `your-facebook-app-id`,
-    }); */
+    /*  this.meta.updateTag({
+       property: "fb:app_id",
+       content: `your-facebook-app-id`,
+     }); */
+  }
+
+  createLinkForCanonicalURL(url) {
+    const head = this.dom.getElementsByTagName('head')[0];
+    var element: HTMLLinkElement = this.dom.querySelector(`link[rel='canonical']`) || null
+    if (element == null) {
+      element = this.dom.createElement('link') as HTMLLinkElement;
+      head.appendChild(element);
+    }
+    element.setAttribute('rel', 'canonical')
+    element.setAttribute('href', url)
   }
 }

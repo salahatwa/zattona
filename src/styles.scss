@@ -6,9 +6,64 @@ $dialog-position-top: 20%;
 @import "~prismjs/plugins/toolbar/prism-toolbar.css";
 @import "~prismjs/themes/prism-okaidia";
 @import "bwm-colors";
-@import "form";
-@import "date-picker";
-@import "editable";
+
+// @media (min-width: 768px) {
+//   .container,
+//   .container-md,
+//   .container-sm {
+//     max-width: inherit !important;
+//   }
+// }
+
+// @media (min-width: 576px) {
+//   .container,
+//   .container-sm {
+//     max-width: inherit !important;
+//   }
+// }
+
+// Buy me Coffee box
+.after-post-box {
+  background-color: #69e9f5;
+  padding: 25px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 5px dashed #0494b1;
+  color: #000;
+  width: 100%;
+
+  h2 {
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+    padding: 0px 10px 20px 10px;
+  }
+
+  p {
+    line-height: 32px;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    font-weight: 400;
+    color: #666;
+
+    img {
+      width: 40%;
+    }
+  }
+}
+
+.ngx-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99998 !important;
+  background-color: rgba(40, 40, 40, 0.1) !important;
+  cursor: progress;
+  display: none;
+}
 
 html,
 body {
@@ -19,6 +74,22 @@ html,
 body,
 p {
   color: $dark-gray-color;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #0494b1 !important;
+  border-color: #0494b1 !important;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active,
+.btn-success.active,
+.open .dropdown-toggle.btn-success {
+  background-color: #0494b1 !important;
+  color: #fff;
+  border-color: #0494b1 !important;
 }
 
 .popup {
@@ -175,7 +246,7 @@ p {
 
 //Posts
 .block-wrapper {
-  padding: 20px 0px 70px 0px;
+  padding: 160px 0px 70px 0px;
 }
 
 .news-title {
@@ -245,7 +316,10 @@ a.post-category {
   transition: all 0.3s ease-in-out;
   line-height: 1.2;
   color: #fff;
-  background: #40356f;
+  background: #0494b1;
+}
+.ngx-pagination .current {
+  background: #69e9f5 !important;
 }
 
 .post-block-wrapper .post-content {
@@ -674,7 +748,7 @@ article span {
 }
 
 .aff-post-meta-c .aff-post-author > a {
-  color: #ec0e0e;
+  color: #0494b1;
   font-weight: 600;
   text-decoration: none;
 }
@@ -690,7 +764,7 @@ article span {
 .aff-post-meta .aff-cat-labels .category {
   display: inline-flex;
   margin-bottom: 5px;
-  background: #ec0e0e;
+  background: #0494b1;
   padding: 0 7px;
   color: #fff;
   font-size: 11px;
@@ -766,12 +840,6 @@ aside ul li a {
     }
   }
 
-  .mce-toc {
-    margin-bottom: 30px;
-    h2 {
-      margin: 0;
-    }
-  }
 
   h1,
   h2,

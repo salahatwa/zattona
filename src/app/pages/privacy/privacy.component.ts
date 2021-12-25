@@ -20,6 +20,7 @@ export class PrivacyComponent implements OnInit {
   item: any = {};
 
   ngOnInit(): void {
+    // this.seoService.createLinkForCanonicalURL();
     this.ngxService.start();
     this.sheetService.getBySlug("privacy", false, true).pipe(finalize(() => {
       this.ngxService.stop();

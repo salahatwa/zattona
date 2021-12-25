@@ -11,7 +11,6 @@ export class TwoColPostComponent implements OnInit {
   @Input('posts')posts:any = [];
   @Input('title')title:any = '';
   @Input('slug')slug:any = '';
-  // defaultImage = 'https://via.placeholder.com/400x200.png?text=Tutscoder';
   defaultImage = "./assets/images/400x200.png";
 
   ngOnInit(): void {

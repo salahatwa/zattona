@@ -1,44 +1,75 @@
-import { Component, OnInit } from "@angular/core";
-import { CategoryService } from "../../../core/services/api";
-import { LocalStorageService } from "../../services/local-storage.service";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
+import { MenuTeamVO } from "src/app/core/models/models";
+import { ConfigrationsService } from "../../../core/services/api";
+
+export class Menu {
+  id?: string;
+  name?: string;
+}
 
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
   styleUrls: ["./header.component.scss"],
 })
-export class HeaderComponent implements OnInit {
-  constructor(
-    private categoryService: CategoryService,
-    private localStorageService: LocalStorageService
-  ) {}
-  categories: any = [];
-  ngOnInit() {
-    this.getAllCategory();
+export class HeaderComponent implements OnInit, OnDestroy {
+
+  subscribtion: Subscription;
+
+  menus: MenuTeamVO[] = [];
+  isMenuOpened: boolean = false;
+
+  customMenus: MenuTeamVO[] = [
+    {
+      team: "Resources",
+      menus: [
+        {
+          name: "Tools",
+          icon: "fa fa-code",
+          url: "/resources/tools",
+          team: "Resources"
+        },
+        {
+          name: "Links",
+          icon: "fa fa-address-book",
+          url: "/resources/links",
+          team: "Resources"
+        }
+      ]
+    }
+  ];
+
+  iconClicked(id) {
+    let menuIcon: HTMLElement = document.getElementById(id) as HTMLElement;
+    if (menuIcon?.classList?.contains('open'))
+      menuIcon.classList.remove('open');
+    else
+      menuIcon.classList.add('open');
   }
 
-  private getAllCategory() {
-    if (this.localStorageService.getLocalStorage("categories")) {
-      this.categories = JSON.parse(
-        this.localStorageService.getLocalStorage("categories")
-      );
-    } else {
-      this.categoryService.listCategories().subscribe((result) => {
-        console.log(result?.data);
-        this.categories = result?.data;
-        this.localStorageService.setLocalStorage(
-          "categories",
-          JSON.stringify(result?.data)
-        );
-      });
-    }
+  constructor(
+    private configService: ConfigrationsService
+  ) { }
+
+
+  ngOnInit() {
+    this.getMenues();
   }
-  updatemenu() {
-    /*   if (document.getElementById('responsive-menu').checked == true) {
-      document.getElementById('menu').style.borderBottomRightRadius = '0';
-      document.getElementById('menu').style.borderBottomLeftRadius = '0';
-    }else{
-      document.getElementById('menu').style.borderRadius = '0px';
-    } */
+
+  ngOnDestroy() {
+    if (this.subscribtion)
+      this.subscribtion.unsubscribe();
   }
+
+  getMenues() {
+    this.subscribtion = this.configService.data$.subscribe(
+      (data) => {
+        console.log(data);
+        if (data?.data)
+          this.menus = data.data.menuTeams;
+      }
+    );
+  }
+
 }

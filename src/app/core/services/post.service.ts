@@ -5,7 +5,7 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ApiMessage, BaseCommentDTO, CustomHttpUrlEncodingCodec, PageBaseCommentVO, PageBaseCommentWithParentVO, PageBasePostSimpleDTO, PageCommentWithHasChildrenVO, PagePostListVO, PostCommentParam, PostDetailVO } from '../models/models';
+import { ApiMessage, BaseCommentDTO, CustomHttpUrlEncodingCodec, PageBaseCommentVO, PageBaseCommentWithParentVO, PageBasePostSimpleDTO, PageCommentWithHasChildrenVO, PostCommentParam, PostDetailVO } from '../models/models';
 import { ApiService } from './api.service';
 
 
@@ -308,7 +308,7 @@ export class PostService {
      * @param size 
      * @param sort 
      */
-    public pageBy(page?: number, size?: number, sort?: Array<string>): Observable<PagePostListVO> {
+    public pageBy(page?: number, size?: number, sort?: Array<string>): Observable<any> {
         let queryParameters = new HttpParams({ encoder: new CustomHttpUrlEncodingCodec() });
         if (page !== undefined && page !== null) {
             queryParameters = queryParameters.set('page', <any>page);

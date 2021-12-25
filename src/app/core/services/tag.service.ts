@@ -1,7 +1,7 @@
 import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApiMessage, CustomHttpUrlEncodingCodec, PagePostListVO, TagDTO } from '../models/models';
+import { ApiMessage, CustomHttpUrlEncodingCodec, TagDTO } from '../models/models';
 import { ApiService } from './api.service';
 
 
@@ -25,7 +25,7 @@ export class TagService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listPostsBySlug(slug: string, page?: number, size?: number, sort?: Array<string>): Observable<PagePostListVO> {
+    public listPostsBySlug(slug: string, page?: number, size?: number, sort?: Array<string>): Observable<any> {
 
         if (slug === null || slug === undefined) {
             throw new Error('Required parameter slug was null or undefined when calling listPostsByUsingGET1.');
