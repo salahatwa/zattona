@@ -37,7 +37,9 @@ export class CodeGeneratorComponent implements OnInit {
   onSubmit(form) {
     console.log(form.value);
     // form.value.selectedTmpIds = ['30', '31', '32', '72', '96', '98'];
-    form.value.options = {};
+    form.value.options = {
+      type:'xml'
+    };
     this.ngxUiLoader.start();
     this.toolsService.generateCode(form.value).pipe(finalize(() => {
       this.ngxUiLoader.stop();

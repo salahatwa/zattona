@@ -1,10 +1,10 @@
 $layout-width: 100px;
 $topbar-height: 70px;
 $grid-gutter-width: 20px;
-$bg-topbar-dark: #0494b1;
+$bg-topbar-dark: #374957;
 $gray-500: #574790;
 $white: #fff;
-$primary: #f1f1f1;
+$primary: #a5b7c6;
 $font-family-secondary: #29c5f6;
 $dark: #343a40;
 $shadow: 0 0 35px 0 rgb(154 161 171 / 15%);
@@ -419,7 +419,7 @@ Responsive Menu
         margin-top: 10px;
         border-radius: 4px;
         transition: all 0.2s ease;
-        background-color: $white;
+        background-color: $bg-topbar-dark;
         box-shadow: rgba($dark, 0.15) 0px 0px 40px 0px;
 
         &:before {
@@ -431,7 +431,7 @@ Responsive Menu
           background-color: transparent;
           border-left: 12px solid transparent;
           border-right: 12px solid transparent;
-          border-bottom: 12px solid $white;
+          // border-bottom: 12px solid $primary;
           z-index: 9999;
         }
 
@@ -449,9 +449,9 @@ Responsive Menu
             padding: 9px 25px;
             clear: both;
             white-space: nowrap;
-            color: $dark;
-            font-weight: 600;
-            text-transform: capitalize;
+            color: $white;
+            font-weight: 400;
+            // text-transform: capitalize;
 
             &:hover {
               color: $primary;

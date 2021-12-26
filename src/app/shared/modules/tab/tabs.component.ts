@@ -12,7 +12,7 @@ import TabComponent from "./tab.component";
   template: `
     <div class="tabs-container">
       <ul class="nav nav-tabs">
-        <li *ngFor="let tab of tabs" class="tab" [ngClass]="{'active': tab.active === true }" (click)="selectTab(tab)">{{ tab.tabTitle }} </li>
+        <li *ngFor="let tab of tabs" class="tab post-category mr-2" [ngClass]="{'active': tab.active === true }" (click)="selectTab(tab)">{{ tab.tabTitle }} </li>
       </ul>
       <ng-content></ng-content>
     </div>
@@ -37,8 +37,8 @@ import TabComponent from "./tab.component";
            opacity:90%;
       }
        .tabs-container .tab.active{
-         color:white;
-         background-color:gray;
+        //  color:white;
+         background-color:#374957;
         //  border-bottom:2px solid blue;
          }
     `
