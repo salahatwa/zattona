@@ -1,0 +1,109 @@
+<section id="main" class="block-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-6">
+        <div class="after-post-box">
+          <h2>SpringBootCodeGenerator</h2>
+          <form #generatorF="ngForm" (ngSubmit)="render()">
+            <div class="row">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-12">
+                    <!-- <div class="form-group">
+                      <label>Source</label>
+                      <textarea
+                        id="source"
+                        name="source"
+                        class="form-control"
+                        rows="8"
+                        [(ngModel)]="imgTmp.source"
+                        (ngModelChange)="render()"
+                        required
+                      ></textarea>
+                    </div> -->
+
+                    <span class="textarea-group">
+                      <textarea
+                        name="source"
+                        id="source"
+                        rows="8"
+                        [(ngModel)]="imgTmp.source"
+                        (ngModelChange)="render()"
+                      ></textarea>
+                      <label for="source"
+                        >Tagline <small>(1000 characters max)</small></label
+                      >
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label>JSON</label>
+                      <textarea
+                        id="data"
+                        name="data"
+                        class="form-control"
+                        rows="8"
+                        [(ngModel)]="imgTmp.data"
+                        (ngModelChange)="render()"
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-6">
+        <div class="after-post-box">
+          <h2>Generated Code Results</h2>
+
+          <ngx-tabs *ngIf="result">
+            <ngx-tab tabTitle="Image">
+              <!-- <div class="terminal">
+                <pre class="terminal" ></pre>
+              </div> -->
+              <!-- <div id="image-section" [innerHTML]="result"></div> -->
+              <app-template-result [result]="result"></app-template-result>
+              <!-- <div id="image-section"  [innerHTML]="result"></div> -->
+              <div class="col-12">
+                <button
+                  type="submit"
+                  class="btn btn-success"
+                  id="startBtn"
+                  style="width: 100%; margin: 10px 0"
+                  [disabled]="!generatorF?.valid"
+                  (click)="generateImage()"
+                >
+                  Download
+                </button>
+              </div>
+            </ngx-tab>
+          </ngx-tabs>
+
+          <p class="text-center">
+            <a
+              href="https://www.buymeacoffee.com/zattona"
+              rel="nofollow"
+              target="_blank"
+              ><img
+                class="rounded"
+                alt="How to Support zattona.com"
+                src="./assets/images/coffee.png"
+            /></a>
+          </p>
+          <p style="text-align: center">
+            <strong>We are thankful for your never ending support.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -130,11 +130,13 @@
                   </div>
                 </div>
                 <div class="aff-meta-above">
-                  <span class="aff-cat-labels"
-                    ><a href="#" class="category" rel="category"
-                      >Nodejs</a
-                    ></span
-                  >
+                  <ng-container *ngFor="let cat of post?.categories">
+                    <a
+                      routerLink="/category/{{ cat?.slug }}"
+                      class="post-category ml-2"
+                      >{{ cat?.name }}</a
+                    >
+                  </ng-container>
                 </div>
               </div>
               <p>{{ post.excerpt }}</p>

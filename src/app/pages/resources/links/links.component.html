@@ -27,38 +27,49 @@
     </div>
   </div> -->
   <ng-container *ngFor="let link of links">
-    <h2 class="toolbox-title">{{link?.team}}</h2>
+    <h2 class="toolbox-title">{{ link?.team }}</h2>
     <div class="row">
-
-      <div class="col-12 col-sm-12 col-md-4 toolbox" *ngFor="let item of link?.links">
+      <div
+        class="col-12 col-sm-12 col-md-4 toolbox"
+        *ngFor="let item of link?.links"
+      >
         <div class="other-tools">
-          <div class="other-tools__image"><img width="300" height="144" [src]="item?.logo"
-              class="attachment-medium size-medium wp-post-image" alt=""></div>
-
+          <div class="other-tools__image">
+            <img
+              width="300"
+              height="144"
+              [src]="item?.logo"
+              class="attachment-medium size-medium wp-post-image"
+              alt=""
+            />
+          </div>
 
           <div class="horizonatal-divider-wrap">
             <p class="horizonatal-divider"></p>
-
           </div>
-          <h3 class="other-tools__title">{{item?.name}}</h3>
+          <h3 class="other-tools__title">{{ item?.name }}</h3>
 
           <div class="other-tools__text">
-            <p>{{item?.description}}
-            </p>
+            <p>{{ item?.description }}</p>
           </div>
-          <div class="other-tools__url"><a class="button btn btn-success toolbox-btn" [href]="item?.url"
-              target="_blank">Try
-              Now</a></div>
+          <div class="other-tools__url">
+            <a
+              class="button btn btn-success toolbox-btn"
+              [href]="item?.url"
+              target="_blank"
+              >Try Now</a
+            >
+          </div>
         </div>
       </div>
     </div>
   </ng-container>
-  <div class="row disclosure-box">
-    <p><strong>Disclosure:</strong> This
-      page may
-      contain affiliate links. When you click an affiliate link and make a purchase, we get a small compensation at no
-      cost to you.</p>
+  <div class="quote--wrapper">
+    <div class="quote">
+      <p>
+        This page may contain affiliate links. When you click an affiliate link
+        and make a purchase, we get a small compensation at no cost to you.
+      </p>
+    </div>
   </div>
-
-
 </div>

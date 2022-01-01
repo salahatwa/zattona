@@ -1,5 +1,28 @@
 /* stylelint-disable selector-list-comma-newline-after */
 
+.copy-btn {
+  color: #fff;
+  background-color: #1273eb !important;
+  border: none;
+  font-size: 14px;
+  transition: 250ms linear;
+  padding: 0 10px;
+  margin-right: 10px;
+  opacity: 0.5;
+}
+
+.copy-btn:hover,
+.copy-btn:focus,
+.copy-btn:active,
+.copy-btn.active,
+.open .dropdown-toggle.copy-btn {
+  background-color: #1273eb !important;
+  color: #fff!important;
+  border:none;
+  box-shadow: inset 0 0 0 100px #0e5cbc!important;
+  opacity: 1.5;
+}
+
 .blog-header {
   line-height: 1;
   border-bottom: 1px solid #e5e5e5;
@@ -438,8 +461,6 @@ select {
   font-size: 14px;
   line-height: 19px;
 }
-
-
 
 @media (max-width: 767px) {
   #related-posts .related-posts-list {

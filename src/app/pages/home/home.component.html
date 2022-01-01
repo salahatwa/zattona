@@ -21,8 +21,13 @@
                     </a>
                   </div>
                   <div class="post-content">
-                    <a class="post-category"
-                      routerLink="/category/{{post.categories[0]?.slug}}">{{post.categories[0]?.name}}</a>
+                    <ng-container *ngFor="let cat of post?.categories">
+                      <a
+                        routerLink="/category/{{ cat?.slug }}"
+                        class="post-category ml-2"
+                        >{{ cat?.name }}</a
+                      >
+                    </ng-container>
                     <h3 class="post-title mt-3">
                       <a routerLink="/post/{{post.slug}}">{{post?.title}}</a>
                     </h3>

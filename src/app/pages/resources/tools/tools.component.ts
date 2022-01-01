@@ -20,7 +20,14 @@ export class ToolsComponent implements OnInit {
           title: "Code Generator",
           description: "Generate any code using JSON",
           link: "/resources/tools/code-generator"
+        },
+        {
+          title: "Image from Html",
+          description: "Generate dynamic images from html and JSON",
+          link: "/resources/tools/image-from-html"
         }
+        // 
+        
       ]
     },
     {

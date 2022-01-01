@@ -13,6 +13,8 @@ import { QrGeneratorComponent } from './tools/qr-code-generator/qr-generator.com
 import { ToolsComponent } from './tools/tools.component';
 import { GetIpDetailsComponent } from './tools/ip-details/get-ip-details.component';
 import { LazyLoadImageModule } from "ng-lazyload-image";
+import { ImageFromHtmlComponent } from './tools/image-from-html/image-from-html.component';
+import { TemplateResultComponent } from './tools/image-from-html/template-result/template-result.component';
 
 const routes: Routes = [
   {
@@ -51,7 +53,12 @@ const routes: Routes = [
           {
             path:'ip-details',
             component:GetIpDetailsComponent
-          }
+          },
+          {
+            path:'image-from-html',
+            component: ImageFromHtmlComponent
+          },
+        
 
         ]
 
@@ -69,7 +76,9 @@ const routes: Routes = [
     ToolsComponent,
     CodeGeneratorComponent,
     QrGeneratorComponent,
-    GetIpDetailsComponent
+    GetIpDetailsComponent,
+    ImageFromHtmlComponent,
+    TemplateResultComponent
   ],
   imports: [CommonModule, FormsModule, TabsModule,NgxKjuaModule,LazyLoadImageModule, RouterModule.forChild(routes)],
 })

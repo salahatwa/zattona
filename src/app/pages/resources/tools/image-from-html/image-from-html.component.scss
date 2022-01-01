@@ -1,0 +1,82 @@
+span.textarea-group {
+  position: relative;
+  display: block;
+}
+
+textarea:hover, body:not(.billing) input[type="color"]:hover, body:not(.billing) input[type="date"]:hover, body:not(.billing) input[type="datetime"]:hover, body:not(.billing) input[type="datetime-local"]:hover, body:not(.billing) input[type="email"]:hover, body:not(.billing) input[type="month"]:hover, body:not(.billing) input[type="number"]:hover, body:not(.billing) input[type="password"]:hover, body:not(.billing) input[type="search"]:hover, body:not(.billing) input[type="tel"]:hover, body:not(.billing) input[type="text"]:hover, body:not(.billing) input[type="time"]:hover, body:not(.billing) input[type="url"]:hover, body:not(.billing) input[type="week"]:hover, body:not(.billing) textarea:hover, select[multiple=multiple]:hover {
+    border-color: #ced0d4;
+}
+
+body:not(.billing) textarea, body:not(.billing) input[type="email"], body:not(.billing) input[type="number"], body:not(.billing) input[type="password"], body:not(.billing) input[type="search"], body:not(.billing) input[type="tel"], body:not(.billing) input[type="text"], body:not(.billing) input[type="url"], body:not(.billing) input[type="color"], body:not(.billing) input[type="date"], body:not(.billing) input[type="datetime"], body:not(.billing) input[type="datetime-local"], body:not(.billing) input[type="month"], body:not(.billing) input[type="time"], body:not(.billing) input[type="week"], body:not(.billing) select[multiple=multiple] {
+    padding: 1em;
+    padding-right: 2.4em;
+    height: auto;
+}
+
+textarea, body:not(.billing) input[type="color"], body:not(.billing) input[type="date"], body:not(.billing) input[type="datetime"], body:not(.billing) input[type="datetime-local"], body:not(.billing) input[type="email"], body:not(.billing) input[type="month"], body:not(.billing) input[type="number"], body:not(.billing) input[type="password"], body:not(.billing) input[type="search"], body:not(.billing) input[type="tel"], body:not(.billing) input[type="text"], body:not(.billing) input[type="time"], body:not(.billing) input[type="url"], body:not(.billing) input[type="week"], body:not(.billing) textarea, select[multiple=multiple] {
+    -webkit-transition: border-color;
+    -moz-transition: border-color;
+    transition: border-color;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid #e9eaec;
+    box-shadow: inset 0 1px 3px rgb(0 0 0 / 6%);
+    font-family: "Proxima Nova","Helvetica Neue","Helvetica","Roboto","Arial",sans-serif;
+    font-size: 1em;
+    margin-bottom: 0.75em;
+    padding: 0.5em 0.5em;
+    width: 100%;
+}
+
+span.textarea-group textarea:focus ~ label, span.textarea-group textarea.hascontent ~ label {
+    top: -0.6em;
+    font-size: .8em;
+    padding: 0 0.3em;
+}
+
+input:not([type]):hover, input[type=color]:hover, input[type=date]:hover, input[type=datetime-local]:hover, input[type=datetime]:hover, input[type=email]:hover, input[type=month]:hover, input[type=number]:hover, input[type=password]:hover, input[type=search]:hover, input[type=tel]:hover, input[type=text]:hover, input[type=time]:hover, input[type=url]:hover, input[type=week]:hover, textarea:hover {
+    outline: none;
+    border-color: #67879d;
+}
+
+span.textarea-group label {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    background-color: #fff;
+    color: #b3b3b3;
+    font-weight: normal;
+    cursor: text;
+    pointer-events: none;
+    margin-bottom: 0.375em;
+}
+
+span.textarea-group .reset-textarea {
+    position: absolute;
+    top: 2.5em;
+    right: 1em;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    opacity: 0;
+    color: #b3b3b3;
+    z-index: 9999;
+}
+
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+input, label, select {
+    display: block;
+    font-family: "Proxima Nova","Helvetica Neue","Helvetica","Roboto","Arial",sans-serif;
+    font-size: 1em;
+}

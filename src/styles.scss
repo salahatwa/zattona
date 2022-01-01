@@ -35,9 +35,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+
 // Buy me Coffee box
 .after-post-box {
-  background-color: #f4f9ff;
+  background-color: #fff;
   padding: 25px;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -338,6 +339,7 @@ a {
   line-height: 1.2;
   color: #fff;
   background: #1273eb;
+  border-radius: 3px;
 }
 .ngx-pagination .current {
   background: #1273eb !important;
@@ -885,5 +887,38 @@ aside ul li a {
   a {
     color: #007bff !important;
   }
+}
+
+
+.terminal {
+  position: relative;
+  width: auto;
+  border-radius: 6px;
+  padding-top: 45px;
+  margin-top: 8px;
+  overflow: hidden;
+  background-color: rgb(15, 15, 16);
+}
+
+.terminal::before {
+  content: "\2022 \2022 \2022";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: rgb(58, 58, 58);
+  color: #c2c3c4;
+  width: 100%;
+  font-size: 2rem;
+  line-height: 0;
+  padding: 14px 0;
+  text-indent: 4px;
+}
+
+.terminal pre {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  color: white;
+  padding: 0 1rem 1rem;
+  margin: 0;
 }
 

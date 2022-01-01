@@ -1,12 +1,15 @@
 import {
   AfterViewChecked,
   Component,
+  ElementRef,
   OnInit,
+  Renderer2,
   ViewEncapsulation
 } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { NgxUiLoaderService } from "ngx-ui-loader";
+import { element } from "protractor";
 import { finalize } from "rxjs/operators";
 import { UserService } from "src/app/core/services/api";
 import { PostService } from "src/app/core/services/post.service";
@@ -14,6 +17,7 @@ import { Constants } from "src/app/shared/helpers/constants";
 import { HighlightService } from "src/app/shared/services/highlight.service";
 import { SeoService } from "src/app/shared/services/seo.service";
 import { PostDetailVO } from "./../../../core/models/models";
+import { Clipboard } from '@angular/cdk/clipboard';
 
 
 @Component({
@@ -29,7 +33,10 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
     private highlightService: HighlightService,
     private seoService: SeoService,
     private userService: UserService,
-    private ngxService: NgxUiLoaderService
+    private ngxService: NgxUiLoaderService,
+    private elRef: ElementRef,
+    private renderer: Renderer2,
+    private clipboard: Clipboard
   ) { }
   post: PostDetailVO;
   highlighted: boolean = false;
@@ -45,6 +52,23 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
     if (this.post?.formatContent && !this.highlighted) {
       this.highlightService.highlightAll();
       this.highlighted = true;
+
+      this.elRef.nativeElement.querySelectorAll('pre').forEach(element => {
+        const button = this.renderer.createElement('button');
+        this.renderer.addClass(button, 'copy-btn');
+        this.renderer.listen(button, 'click', (event) => {
+          this.clipboard.copy(element?.querySelector('code').innerText);
+        });
+        const text = this.renderer.createText('Copy');
+        const div = this.renderer.createElement('div');
+        this.renderer.setStyle(div, 'position', 'absolute');
+        this.renderer.setStyle(div, 'right', '0');
+        this.renderer.setStyle(div, 'float', 'right');
+        this.renderer.appendChild(div, button);
+        this.renderer.appendChild(button, text);
+        this.renderer.appendChild(element, div);
+        this.renderer.insertBefore(element, div, element?.querySelector('code'));
+      });
     }
   }
 
