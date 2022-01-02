@@ -263,6 +263,9 @@ THE SOFTWARE.
 font-awesome
 (OFL-1.1 AND MIT)
 
+kjua-svg
+MIT
+
 ng-lazyload-image
 MIT
 The MIT License (MIT)

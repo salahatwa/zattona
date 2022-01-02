@@ -34,6 +34,8 @@ export class AppComponent {
 
 
   private init() {
+ 
+
     if (this.sessionStorageService.getSessionStorage("latestPosts")) {
       let result = JSON.parse(
         this.sessionStorageService.getSessionStorage("latestPosts")

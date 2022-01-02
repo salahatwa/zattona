@@ -25,6 +25,9 @@ export class SidebarComponent implements OnInit, OnDestroy {
   defaultImage = "./assets/images/400x200.png";
 
   ngOnInit() {
+    if (window['FB']) {
+      window['FB'].XFBML.parse();
+    }
     this.getFeaturedPosts();
     this.getAllTags();
   }
