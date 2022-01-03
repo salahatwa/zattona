@@ -55,9 +55,10 @@ export class CategoryListingComponent implements OnInit {
 
       this.seoService.setMetaTags({
         title: `${this.commanService.capitalizeFirstLetter(
-          this.category
+          response?.data?.category?.name
         )} ` + Constants.SITE_PREFIX,
         description: response?.data?.category?.description,
+        image: response?.data?.category?.thumbnail,
       });
 
       this.posts = response?.data?.posts?.content;

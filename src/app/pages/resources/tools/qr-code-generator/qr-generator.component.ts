@@ -21,24 +21,6 @@ export class QrGeneratorComponent implements OnInit {
         // Defaults to 0 if no query param provided.
         this.text = params['text'] || 0;
         console.log(this.text);
-
-        if (this.text ) {
-
-          setTimeout(function () {
-            // convert to a valid XML source
-            const as_text = new XMLSerializer().serializeToString(this.svg);
-            // store in a Blob
-            const blob = new Blob([as_text], { type: "image/svg+xml" });
-            // create an URI pointing to that blob
-            const url = URL.createObjectURL(blob);
-            const win = open(url);
-            // so the Garbage Collector can collect the blob
-            win.onload = (evt) => URL.revokeObjectURL(url);
-          }, 9000);
-
-
-
-        }
       });
   }
 
@@ -113,5 +95,17 @@ export class QrGeneratorComponent implements OnInit {
     // const win = open(url);
     // // so the Garbage Collector can collect the blob
     // win.onload = (evt) => URL.revokeObjectURL(url);
+  }
+
+  download() {
+    // convert to a valid XML source
+    const as_text = new XMLSerializer().serializeToString(this.svg);
+    // store in a Blob
+    const blob = new Blob([as_text], { type: "image/svg+xml" });
+    // create an URI pointing to that blob
+    const url = URL.createObjectURL(blob);
+    const win = open(url);
+    // so the Garbage Collector can collect the blob
+    win.onload = (evt) => URL.revokeObjectURL(url);
   }
 }
