@@ -71,11 +71,6 @@ import { SeoService } from "./shared/services/seo.service";
       useClass: BrowserStateInterceptor,
       multi: true,
     },
-    // {
-    //   provide: ErrorHandler,
-    //   useClass: SentryErrorHandler,
-
-    // },
     { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
