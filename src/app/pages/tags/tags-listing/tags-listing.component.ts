@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { NgxUiLoaderService } from "ngx-ui-loader";
-import { combineLatest } from "rxjs/internal/observable/combineLatest";
 import { finalize } from "rxjs/operators";
 import { TagService } from "src/app/core/services/tag.service";
 import { Constants } from "src/app/shared/helpers/constants";
@@ -19,7 +18,6 @@ export class TagsListingComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private tagService: TagService,
     private ngxService: NgxUiLoaderService,
     private seoService: SeoService,
@@ -31,9 +29,8 @@ export class TagsListingComponent implements OnInit {
   firstPost: any;
   tagsList: any = [];
   ngOnInit() {
-    // this.seoService.createLinkForCanonicalURL();
-    combineLatest([this.route.paramMap, this.route.queryParamMap]).subscribe(
-      ([pathParams, queryParams]) => {
+    this.route.paramMap.subscribe(
+      (pathParams) => {
 
         this.tag = pathParams.get("slug");
 

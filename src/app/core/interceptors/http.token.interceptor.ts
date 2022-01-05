@@ -20,6 +20,7 @@ export class HttpTokenInterceptor implements HttpInterceptor {
       // 'Access-Control-Allow-Origin': '*'
     };
     headersConfig['Accept-Language'] = `en`;
+    headersConfig['Content-Encoding'] = `gzip`;
 
     let queryParameters = req?.params;
 

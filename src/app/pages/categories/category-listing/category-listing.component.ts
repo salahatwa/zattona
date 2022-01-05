@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { NgxUiLoaderService } from "ngx-ui-loader";
-import { combineLatest } from "rxjs/internal/observable/combineLatest";
 import { finalize } from "rxjs/operators";
 import { CategoryService } from "src/app/core/services/api";
 import { CommanService } from "src/app/shared/services/comman.service";
@@ -20,7 +19,6 @@ export class CategoryListingComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private categoryService: CategoryService,
     private seoService: SeoService,
     private commanService: CommanService,
@@ -32,9 +30,8 @@ export class CategoryListingComponent implements OnInit {
   defaultImage = Constants.DEFAULT_IMG;
 
   ngOnInit() {
-    // this.seoService.createLinkForCanonicalURL();
-    combineLatest([this.route.paramMap, this.route.queryParamMap]).subscribe(
-      ([pathParams]) => {
+    this.route.paramMap.subscribe(
+      (pathParams) => {
 
         this.category = pathParams.get("catId");
 

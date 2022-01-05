@@ -1,180 +1,8 @@
-<!-- <div class="trending-bar-dark hidden-xs">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
-        <ul id="nav1">
-          <li><a href="/">Home</a></li>
-          <li><a routerLink="/about">About</a></li>
-          <li><a routerLink="/contact">Contact</a></li>
-          <li><a href="/sitemap">Sitemap</a></li>
-        </ul>
-      </div>
-
-      <div
-        class="
-          col-md-12 col-sm-12 col-xs-12
-          top-nav-social-lists
-          text-lg-right
-          col-lg-4
-          ml-lg-auto
-        "
-      >
-        <ul class="list-unstyled mt-4 mt-lg-0">
-          <li>
-            <a
-              rel="noopener noreferrer"
-              href="https://www.facebook.com/TutsCoder"
-              target="_blank"
-              title="facebook"
-            >
-              <span class="social-icon">
-                <i class="fa fa-facebook-f"></i>
-              </span>
-            </a>
-            <a
-              rel="noopener noreferrer"
-              href="https://twitter.com/tutscoder"
-              target="_blank"
-              title="twitter"
-            >
-              <span class="social-icon">
-                <i class="fa fa-twitter"></i>
-              </span>
-            </a>
-
-            <a
-              rel="noopener noreferrer"
-              href="https://www.youtube.com/channel/UCmObcNnWeVBlSeO_iQhsRcA"
-              target="_blank"
-              title="youtube"
-            >
-              <span class="social-icon">
-                <i class="fa fa-youtube"></i>
-              </span>
-            </a>
-
-            <a
-              rel="noopener noreferrer"
-              href="https://in.pinterest.com/tutscoder"
-              target="_blank"
-              title="pinterest"
-            >
-              <span class="social-icon">
-                <i class="fa fa-pinterest-p"></i>
-              </span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<header class="header-navigation d-none d-lg-block">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-xs-12 col-sm-3 col-md-3">
-        <div class="logo">
-          <a href="index.html">
-            <img src="./assets/images/zattona-w.png" alt="tutscoder" />
-          </a>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-9 col-md-9">
-        <div class="top-ad-banner float-right"></div>
-      </div>
-    </div>
-  </div>
-</header>
-<div class="main-navbar clearfix bg-dark">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <nav class="navbar navbar-expand-lg site-main-nav navigation">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="fa fa-bars"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/">Home</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="javascript:;"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Tutorials
-                </a>
-                <div class="dropdown-menu">
-                  <a
-                    *ngFor="let cat of categories"
-                    class="dropdown-item"
-                    routerLink="/category/{{ cat.slug }}"
-                    >{{ cat.name }}</a
-                  >
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="javascript:;"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Resources
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" routerLink="/resources/tools"
-                    >Toolbox</a
-                  >
-                  <a class="dropdown-item" routerLink="/resources/books"
-                    >Books</a
-                  >
-                  <a class="dropdown-item" routerLink="/resources/courses"
-                    >Courses</a
-                  >
-                  <a
-                    class="dropdown-item"
-                    routerLink="/resources/devlopment-tools"
-                    >Web Development Tools</a
-                  >
-                </div>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/deals">Deals</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </div>
-  </div>
-</div> -->
-
 <header id="topnav">
-  <!-- Top bar Start -->
   <div class="navbar-custom">
     <div class="container-fluid">
       <ul class="list-unstyled topnav-menu float-right mb-0">
         <li class="dropdown notification-list">
-          <!-- Mobile menu toggle-->
           <a
             class="navbar-toggle nav-link"
             [ngClass]="{ open: isMenuOpened }"
@@ -187,10 +15,9 @@
             </div>
           </a>
 
-          <!-- End mobile menu toggle-->
         </li>
 
-        <li class="d-none d-lg-block d-xl-block" id="profileMenu9">
+        <li class="d-none d-lg-block d-xl-block">
           <a
             class="nav-link nav-user mr-0 waves-effect"
             href="https://www.zattona.com/evaluate"
@@ -203,47 +30,13 @@
               alt="zattona review"
               class="rounded-circle"
             />
-            <span class="pro-user-name ml-1" style="vertical-align: middle;">Review us </span>
-          </a>
-        </li>
-
-        <!-- <li class="" id="profileMenuLogin">
-                  <a class="nav-link nav-user mr-0 waves-effect" href="https://h-supertools.com/sso/login" role="button">
-                      <img title="h-supertools h-educate" src="/assets/images/login.png" alt="h-supertools h-educate" class="">
-                      <span class="pro-user-name ml-1"><b>Login</b>
-                      </span>
-                  </a>
-
-              </li> -->
-
-        <!-- <li
-          class="dropdown notification-list"
-          id="profileMenu"
-          style="display: none"
-        >
-          <a
-            class="nav-link dropdown-toggle nav-user mr-0 waves-effect"
-            data-toggle="dropdown"
-            href="#"
-            role="button"
-            aria-haspopup="false"
-            aria-expanded="false"
-          >
-            <img
-              title="h-supertools avatar"
-              src="/assets/images/users/avatar.png"
-              alt="h-supertools avatar"
-              class="rounded-circle"
-            />
-            <span class="pro-user-name ml-1"
-              >Account <i class="mdi mdi-chevron-down"></i>
+            <span class="pro-user-name ml-1" style="vertical-align: middle"
+              >Review us
             </span>
           </a>
-         
-        </li> -->
+        </li>
       </ul>
 
-      <!-- LOGO -->
       <div class="logo-box">
         <a routerLink="/" class="logo text-center">
           <span class="logo-lg">
@@ -251,40 +44,13 @@
               title="zattona logo"
               src="./assets/images/logo.svg"
               alt="zattona logo"
-              style="width: 120px; height: 60px;"
+              style="width: 120px; height: 60px"
             />
           </span>
         </a>
       </div>
-
-      <!-- <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
-
-              <li class="dropdown d-none d-lg-block">
-
-
-                  <div class="" style="width: 500px; padding: 0 15px; display: block; line-height: 70px; text-align: center; max-height: 70px;">
-
-                      <marquee direction="left">
-
-                          <label id="Label1"><a target="_blank" href="https://youtu.be/9w5sMCiDd-Q"><i class="mdi mdi-web">&nbsp;</i>How To Make Money Online on AUTOPILOT🚀</a></label>
-
-                          <label id="Label2"><a target="_blank" href="https://youtu.be/XrSzLUFodGQ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="mdi mdi-web">&nbsp;</i>Build an Online Business With Me #1: Plan + Niche</a></label>
-
-                          <label id="Label3"><a target="_blank" href="https://www.starterstory.com/stories/i-built-a-seo-tool-that-s-completely-free-for-users-from-lebanon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="mdi mdi-web">&nbsp;</i>How I Started H-supertools!?</a></label>     
-
-                      </marquee>
-
-
-                  </div>
-
-              </li>
-
-
-          </ul> -->
     </div>
-    <!-- end container-fluid-->
   </div>
-  <!-- End Top bar -->
 
   <div class="topbar-menu">
     <div class="container-fluid">
@@ -293,10 +59,12 @@
         class="active"
         [ngClass]="{ 'display-block': isMenuOpened }"
       >
-        <!-- Navigation Menu-->
-        <ul class="navigation-menu in" >
+        <ul class="navigation-menu in">
           <li *ngFor="let menu of menus" class="has-submenu active">
-            <a href="javascript:void(0)" class="active" (click)="iconClicked(menu?.team)"
+            <a
+              href="javascript:void(0)"
+              class="active"
+              (click)="iconClicked(menu?.team)"
               ><i class="mdi mdi-chart-areaspline"></i>{{ menu?.team }}
               <div class="arrow-down"></div>
             </a>
@@ -311,15 +79,17 @@
             </ul>
           </li>
 
-
           <li *ngFor="let menu of customMenus" class="has-submenu active">
-            <a href="javascript:void(0)" class="active" (click)="iconClicked(menu?.team)"
+            <a
+              href="javascript:void(0)"
+              class="active"
+              (click)="iconClicked(menu?.team)"
               ><i class="mdi mdi-chart-areaspline"></i>{{ menu?.team }}
               <div class="arrow-down"></div>
             </a>
             <ul [attr.id]="menu?.team" class="submenu in">
               <li *ngFor="let cat of menu?.menus">
-                <a routerLink="{{cat?.url}}">
+                <a routerLink="{{ cat?.url }}">
                   <i class="mdi mdi-cloud-search-outline"></i
                   ><i class="{{ cat?.icon }}"></i>
                   {{ cat?.name }}
@@ -327,175 +97,7 @@
               </li>
             </ul>
           </li>
-
-
-          <!-- 
- 
-
-      
-          <li class="has-submenu">
-            <a href="#"
-              ><i class="mdi mdi-email-outline"></i>Email
-              <div class="arrow-down"></div>
-            </a>
-            <ul class="submenu">
-              <li>
-                <a href="/email/email-validation">
-                  <i class="mdi mdi-email-check-outline"></i>&nbsp;Email
-                  Validation Tool
-                </a>
-              </li>
-              <li>
-                <a href="/email/email-bulk-validation">
-                  <i class="mdi mdi-email-check"></i>&nbsp;Bulk Email Validation
-                </a>
-              </li>
-
-              <li>
-                <a href="/email/email-text-extraction">
-                  <i class="mdi mdi-email-plus"></i>&nbsp;Email TXT Extraction
-                  Tool
-                </a>
-              </li>
-              <li>
-                <a href="/email/email-warmup-schedule-generator">
-                  <i class="mdi mdi-chart-bar"></i>&nbsp;Warmup Schedule
-                  Generator
-                </a>
-              </li>
-              <li>
-                <a href="/email/subject-line-tester">
-                  <i class="mdi mdi-thermometer"></i>&nbsp;Subject Line Tester
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="has-submenu active">
-            <a href="#" class="active"
-              ><i class="fe-search"></i>Discover
-              <div class="arrow-down"></div>
-            </a>
-            <ul class="submenu in">
-              <li class="active">
-                <a
-                  href="https://h-supertools.com/discover/high-cpc-keywords"
-                  class="active"
-                >
-                  <i class="mdi mdi-crosshairs-gps"></i>&nbsp;High CPC Keywords
-                </a>
-              </li>
-              <li>
-                <a href="https://h-supertools.com/discover/find-influencers">
-                  <i class="mdi mdi-account-star"></i>&nbsp;Influencers
-                </a>
-              </li>
-              <li>
-                <a href="https://h-supertools.com/affiliate/programs">
-                  <i class="fe-target"></i>&nbsp;Affiliate Programs
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="has-submenu">
-            <a href="#"
-              ><i class="fe-cloud"></i>Web Tools
-              <div class="arrow-down"></div>
-            </a>
-            <ul class="submenu">
-              <li>
-                <a href="/web/privacy-policy-generator">
-                  <i class="mdi mdi-checkbox-multiple-marked"></i>&nbsp;Privacy
-                  Policy Generator
-                </a>
-              </li>
-              <li>
-                <a href="/web/terms-and-conditions-generator">
-                  <i class="mdi mdi-clipboard-check"></i>&nbsp;Terms &amp;
-                  Conditions Generator
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="has-submenu last-elements">
-            <a href="#"
-              ><i class="mdi mdi-television-guide"></i>Guides
-              <div class="arrow-down"></div>
-            </a>
-            <ul class="submenu">
-              <li>
-                <a href="/guides/affiliate-marketing-guide" target="_blank">
-                  <i class="mdi mdi-book-open-outline"></i>&nbsp;Affiliate
-                  Marketing Guide
-                </a>
-              </li>
-              <li>
-                <a href="/guides/email-marketing-guide" target="_blank">
-                  <i class="mdi mdi-book-open-outline"></i>&nbsp;Email Marketing
-                  Guide
-                </a>
-              </li>
-              <li>
-                <a href="/guides/seo-guide" target="_blank">
-                  <i class="mdi mdi-book-open-outline"></i>&nbsp;SEO Guide
-                </a>
-              </li>
-              <li>
-                <a href="/guides/youtube-guide" target="_blank">
-                  <i class="mdi mdi-book-open-outline"></i>&nbsp;YouTube Guide
-                </a>
-              </li>
-              <li>
-                <a href="/guides/blogging-guide" target="_blank">
-                  <i class="mdi mdi-book-open-outline"></i>&nbsp;Blogging Guide
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="has-submenu last-elements">
-            <a href="#"
-              ><i class="mdi mdi-star"></i>More!
-              <div class="arrow-down"></div>
-            </a>
-            <ul class="submenu">
-              <li>
-                <a href="https://h-educate.com/" target="_blank">
-                  <i class="mdi mdi-library-books"></i>&nbsp;H-educate
-                </a>
-              </li>
-
-              <li>
-                <a href="https://h-educate.com/forums" target="_blank">
-                  <i class="mdi mdi-newspaper"></i>&nbsp;H-educate Forums
-                </a>
-              </li>
-
-              <li>
-                <a href="https://l-ink.me/" target="_blank">
-                  <i class="mdi mdi-link-plus"></i>&nbsp;L-ink URL Tracker
-                </a>
-              </li>
-
-              <li>
-                <a href="https://inquicksticks.com/" target="_blank">
-                  <i class="mdi mdi-book-open-page-variant"></i
-                  >&nbsp;InQuickSticks
-                </a>
-              </li>
-
-              <li>
-                <a href="/super-email-sender/license">
-                  <i class="mdi mdi-send"></i>&nbsp;Super Email Sender
-                </a>
-              </li>
-            </ul>
-          </li> -->
         </ul>
-        <!-- End navigation menu -->
-
         <div class="clearfix"></div>
       </div>
     </div>
