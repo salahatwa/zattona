@@ -21,20 +21,10 @@
               </div>
             </header>
             <div
-              class="
-                aff-post-content
-                cf
-                aff-entry-content
-                has-share-float
-                aff-content-spacious
-              "
+              class="aff-post-content cf aff-entry-content has-share-float aff-content-spacious"
             >
               <div
-                class="
-                  aff-post-meta aff-post-meta-c aff-post-meta-left
-                  the-aff-post-meta
-                  has-below
-                "
+                class="aff-post-meta aff-post-meta-c aff-post-meta-left the-aff-post-meta has-below"
               >
                 <h2 class="is-title aff-post-title-alt">
                   <a
@@ -45,10 +35,7 @@
                 </h2>
                 <div class="meta-title">
                   <div
-                    class="
-                      aff-post-meta aff-post-meta-c aff-post-meta-left
-                      has-below
-                    "
+                    class="aff-post-meta aff-post-meta-c aff-post-meta-left has-below"
                   >
                     <span class="post-date">
                       Published on
@@ -72,14 +59,7 @@
             class="aff-post aff-posts-flex-grid has-post-thumbnail"
           >
             <div
-              class="
-                aff-post-content1
-                cf
-                aff-entry-content
-                has-share-float
-                aff-content-spacious1
-                lay-8
-              "
+              class="aff-post-content1 cf aff-entry-content has-share-float aff-content-spacious1 lay-8"
               *ngFor="let post of posts | slice: 1 | paginate: page"
             >
               <figure
@@ -92,11 +72,7 @@
                     width="500"
                     height="270"
                     [src]="post?.thumbnail"
-                    class="
-                      attachment-grid-featured-image
-                      size-grid-featured-image
-                      wp-post-image
-                    "
+                    class="attachment-grid-featured-image size-grid-featured-image wp-post-image"
                     [alt]="post?.title"
                     itemprop="image"
                 /></a>
@@ -106,11 +82,7 @@
                 ></figcaption>
               </figure>
               <div
-                class="
-                  aff-post-meta aff-post-meta-c aff-post-meta-left
-                  the-aff-post-meta
-                  has-below
-                "
+                class="aff-post-meta aff-post-meta-c aff-post-meta-left the-aff-post-meta has-below"
               >
                 <h2 class="is-title aff-post-title-alt" itemprop="headline">
                   <a
@@ -121,10 +93,7 @@
                 </h2>
                 <div class="meta-title">
                   <div
-                    class="
-                      aff-post-meta aff-post-meta-c aff-post-meta-left
-                      has-below
-                    "
+                    class="aff-post-meta aff-post-meta-c aff-post-meta-left has-below"
                   >
                     <!--  <span
                   class="aff-meta-item aff-post-author" itemprop="author">
@@ -168,9 +137,7 @@
           </div>
         </div>
       </ng-container>
-      <aside
-        class="col-lg-4 col-md-12 sidebars s_right"
-      >
+      <aside class="col-lg-4 col-md-12 sidebars s_right">
         <div class="sidebar">
           <div class="col-sm-12 col-xs-12 sidebar-widget">
             <div class="widget">
@@ -256,18 +223,6 @@
 
         </div> -->
 
-          <div class="col-sm-12 col-xs-12 sidebar-widget">
-            <div class="widget">
-              <h3 class="news-title">
-                <span>CATEGORIES</span>
-              </h3>
-
-              <app-category-list
-                [categoriesList]="categories"
-              ></app-category-list>
-            </div>
-          </div>
-
           <div
             class="col-sm-12 col-xs-12 sidebar-widget widget-popular-posts mt-3"
           >
@@ -297,7 +252,7 @@
                 <span>Tags</span>
               </h3>
 
-              <app-tags-list [tagsList]="tagsList"></app-tags-list>
+              <app-tc-list [link]="'tag'" [list]="tagsList"></app-tc-list>
             </div>
           </div>
         </div>

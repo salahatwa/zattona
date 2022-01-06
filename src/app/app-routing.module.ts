@@ -4,7 +4,6 @@ import { ContactComponent } from "./pages/contact/contact.component";
 import { PageNotFoundComponent } from "./pages/page-not-found/page-not-found.component";
 import { SiteInfoComponent } from "./pages/site-info/site-info.component";
 import { VerificationComponent } from "./pages/verification/verification.component";
-import { SitemapComponent } from "./sitemap/sitemap.component";
 
 
 const routes: Routes = [
@@ -35,10 +34,6 @@ const routes: Routes = [
   {
     path: "contact",
     component: ContactComponent,
-  },
-  {
-    path: "sitemap",
-    component: SitemapComponent,
   },
   {
     path: "verify/:token",
@@ -74,6 +69,5 @@ export class AppRoutingModule { }
 export const routedComponents = [
   SiteInfoComponent,
   PageNotFoundComponent,
-  VerificationComponent,
-  SitemapComponent,
+  VerificationComponent
 ];

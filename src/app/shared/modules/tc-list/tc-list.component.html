@@ -1,9 +1,8 @@
 <div class="col-sm-12 widget-body">
   <div class="row">
     <ul class="widget-list w-tag-list">
-      <li *ngFor="let tag of tags">
-        <a routerLink="/tag/{{tag.slug}}">
-          {{tag.name}} </a>
+      <li *ngFor="let item of results">
+        <a routerLink="/{{ link }}/{{ item?.slug }}"> {{ item?.name }} </a>
       </li>
     </ul>
   </div>

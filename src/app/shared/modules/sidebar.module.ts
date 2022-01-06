@@ -1,23 +1,20 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { PopularPostComponent } from "./popular-post/popular-post.component";
-import { CategoryListComponent } from "./category-list/category-list.component";
-import { TagsListComponent } from "./tags-list/tags-list.component";
 import { RouterModule } from "@angular/router";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { LazyLoadImageModule } from "ng-lazyload-image";
+import { TcListComponent } from "./tc-list/tc-list.component";
 
 @NgModule({
   declarations: [
     PopularPostComponent,
-    CategoryListComponent,
-    TagsListComponent,
+    TcListComponent,
     SidebarComponent,
   ],
   exports: [
     PopularPostComponent,
-    CategoryListComponent,
-    TagsListComponent,
+    TcListComponent,
     SidebarComponent,
   ],
   imports: [CommonModule, RouterModule, LazyLoadImageModule],
