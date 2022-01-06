@@ -1,10 +1,8 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { AboutComponent } from "./pages/about/about.component";
 import { ContactComponent } from "./pages/contact/contact.component";
 import { PageNotFoundComponent } from "./pages/page-not-found/page-not-found.component";
-import { PrivacyComponent } from "./pages/privacy/privacy.component";
-import { TermsComponent } from "./pages/terms/terms.component";
+import { SiteInfoComponent } from "./pages/site-info/site-info.component";
 import { VerificationComponent } from "./pages/verification/verification.component";
 import { SitemapComponent } from "./sitemap/sitemap.component";
 
@@ -43,20 +41,12 @@ const routes: Routes = [
     component: SitemapComponent,
   },
   {
-    path: "about",
-    component: AboutComponent,
-  },
-  {
     path: "verify/:token",
     component: VerificationComponent,
   },
   {
-    path: "terms",
-    component: TermsComponent,
-  },
-  {
-    path: "privacy-policy",
-    component: PrivacyComponent,
+    path: "info/:slug",
+    component: SiteInfoComponent,
   },
   {
     path: "home",
@@ -82,10 +72,8 @@ const routes: Routes = [
 export class AppRoutingModule { }
 
 export const routedComponents = [
-  TermsComponent,
-  PrivacyComponent,
+  SiteInfoComponent,
   PageNotFoundComponent,
   VerificationComponent,
-  AboutComponent,
   SitemapComponent,
 ];
