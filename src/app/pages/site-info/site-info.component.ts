@@ -34,8 +34,6 @@ export class SiteInfoComponent implements OnInit {
           });
         });
       }
-    )
-
-   
+    );
   }
 }

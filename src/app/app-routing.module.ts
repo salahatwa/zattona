@@ -36,7 +36,7 @@ const routes: Routes = [
     component: ContactComponent,
   },
   {
-    path: "verify/:token",
+    path: "verify",
     component: VerificationComponent,
   },
   {

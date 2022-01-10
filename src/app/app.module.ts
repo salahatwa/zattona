@@ -22,6 +22,7 @@ import { ResourcesModule } from "./pages/resources/resources.module";
 import { TagsModule } from "./pages/tags/tags.module";
 import { FooterComponent } from "./shared/components/footer/footer.component";
 import { HeaderComponent } from "./shared/components/header/header.component";
+import { LoginComponent } from "./shared/components/login/login.component";
 import { CommanService } from "./shared/services/comman.service";
 import { HighlightService } from "./shared/services/highlight.service";
 import { LocalStorageService } from "./shared/services/local-storage.service";
@@ -35,6 +36,7 @@ import { SeoService } from "./shared/services/seo.service";
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    LoginComponent,
     ContactComponent,
   ],
   imports: [
@@ -69,6 +71,7 @@ import { SeoService } from "./shared/services/seo.service";
     },
     { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true },
   ],
+  exports:[LoginComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
