@@ -19,8 +19,8 @@ export class SeoService {
   setMetaTags(config?: any) {
     config = {
       title: Constants.SITE_PREFIX + ` - Programming Blog & Web Development Tutorials`,
-      description: Constants.SITE_DESC ,
-      image: `https://zattona-api.herokuapp.com/assets/images/z-l.png`,
+      description: Constants.SITE_DESC,
+      image: config?.image ? `${config?.image}` : Constants.DEFAULT_IMG,
       url: `${this.dom.location.origin}${this.router.url}`,
       ...config,
     };
@@ -38,6 +38,7 @@ export class SeoService {
     this.meta.updateTag({ name: "twitter:title", content: config.title });
     this.meta.updateTag({ name: "twitter:description", content: config.description });
     this.meta.updateTag({ name: "twitter:image", content: config.image });
+    this.meta.updateTag({ name: "twitter:image:alt", content: config.title });
     this.meta.updateTag({ name: "twitter:label1", content: "Est. reading time" });
     this.meta.updateTag({ name: "twitter:data1", content: "10 minutes" });
 

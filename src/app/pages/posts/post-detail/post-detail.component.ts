@@ -74,7 +74,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
         this.ngxService.stop();
       })).subscribe((post) => {
         this.post = post?.data;
-
+        this.defaultImage = this.post?.thumbnail ? this.post?.thumbnail : this.defaultImage;
         this.seoService.setMetaTags({
           title: `${this.post.title} ` + Constants.SITE_PREFIX,
           description: `${this.post?.metaDescription}`,
