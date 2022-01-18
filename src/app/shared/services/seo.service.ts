@@ -18,7 +18,7 @@ export class SeoService {
 
   setMetaTags(config?: any) {
     config = {
-      title: Constants.SITE_PREFIX + ` - Programming Blog & Web Development Tutorials`,
+      title: Constants.SITE_TITLE,
       description: Constants.SITE_DESC,
       image: config?.image ? `${config?.image}` : Constants.DEFAULT_IMG,
       url: `${this.dom.location.origin}${this.router.url}`,
@@ -33,8 +33,8 @@ export class SeoService {
 
     // Twitter
     this.meta.updateTag({ name: "twitter:card", content: "summary" });
-    this.meta.updateTag({ name: "twitter:site", content: `@zattona` });
-    this.meta.updateTag({ name: "twitter:creator", content: `@zattona` });
+    this.meta.updateTag({ name: "twitter:site", content: `${Constants.SITE_TAG}` });
+    this.meta.updateTag({ name: "twitter:creator", content: `${Constants.SITE_TAG}` });
     this.meta.updateTag({ name: "twitter:title", content: config.title });
     this.meta.updateTag({ name: "twitter:description", content: config.description });
     this.meta.updateTag({ name: "twitter:image", content: config.image });
