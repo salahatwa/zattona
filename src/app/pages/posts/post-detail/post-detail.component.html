@@ -1,5 +1,5 @@
-<section id="main" class="block-wrapper" [hidden]="!post">
-  <div class="container">
+<section id="main" class="block-wrapper container">
+  <div *ngIf="post;else loader_content">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-8">
         <div class="content">
@@ -460,3 +460,11 @@
     </div>
   </div>
 </section>
+
+<ng-template #loader_content>
+  <div class="linear-background">
+   
+  </div>
+</ng-template>
+
+

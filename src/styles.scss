@@ -23,7 +23,7 @@ $dialog-position-top: 20%;
   height: 33px;
   width: auto;
   top: -42px;
-  transition: .2s all;
+  transition: 0.2s all;
   border: 1px solid #1273eb;
   left: unset;
   right: 35px;
@@ -36,21 +36,17 @@ $dialog-position-top: 20%;
   color: #fff;
 }
 
-
-
-
 body {
   overflow: auto;
   height: auto;
-  min-height: 100vh!important;
-  background-color: #fff!important;
-  color: #5f7d95!important;
-  font-family: Proxima Nova,Verdana,Avenir Next!important;
+  min-height: 100vh !important;
+  background-color: #fff !important;
+  color: #5f7d95 !important;
+  font-family: Proxima Nova, Verdana, Avenir Next !important;
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
-
 
 // Buy me Coffee box
 .after-post-box {
@@ -109,7 +105,7 @@ p {
 .btn-success {
   color: #fff;
   background-color: #1273eb !important;
-  border:none;
+  border: none;
   font-weight: 600;
   font-size: 16px;
   height: 44px;
@@ -125,9 +121,9 @@ p {
 .btn-success.active,
 .open .dropdown-toggle.btn-success {
   background-color: #1273eb !important;
-  color: #fff!important;
-  border:none;
-  box-shadow: inset 0 0 0 100px #0e5cbc!important;
+  color: #fff !important;
+  border: none;
+  box-shadow: inset 0 0 0 100px #0e5cbc !important;
 }
 
 /*Sidebar widget title*/
@@ -241,7 +237,7 @@ a {
 }
 .ngx-pagination .current {
   background: #1273eb !important;
-  border-radius: 3px!important;
+  border-radius: 3px !important;
 }
 
 .post-block-wrapper .post-content {
@@ -689,7 +685,7 @@ article span {
   color: #ffffff;
   margin: 0 20px 17px 0;
   padding: 5px 10px 5px 10px !important;
-  border-radius:3px;
+  border-radius: 3px;
 }
 
 .cat-label,
@@ -758,7 +754,6 @@ aside ul li a {
     }
   }
 
-
   h1,
   h2,
   h3,
@@ -786,7 +781,6 @@ aside ul li a {
     color: #007bff !important;
   }
 }
-
 
 .terminal {
   position: relative;
@@ -820,4 +814,24 @@ aside ul li a {
   margin: 0;
 }
 
-
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+.linear-background {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 1000px 104px;
+  height: 338px;
+  position: relative;
+  overflow: hidden;
+}

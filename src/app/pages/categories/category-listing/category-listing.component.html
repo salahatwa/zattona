@@ -1,5 +1,5 @@
-<section class="block-wrapper">
-  <div class="container">
+<section class="block-wrapper container">
+  <div *ngIf="posts?.length > 0;else loader_content">
     <div class="row">
       <div class="col-lg-8 col-md-12 layout_8 main-content DESC">
         <ng-container *ngIf="firstPost">
@@ -111,11 +111,6 @@
                       has-below
                     "
                   >
-                    <!--  <span
-                  class="aff-meta-item aff-post-author" itemprop="author">
-                  <span class="by"> Written by </span><a
-                    href="#"
-                    title="Posts by">Jignesh zala</a></span> -->
                     <a
                       href="#"
                       class="aff-meta-item date-link"
@@ -139,7 +134,7 @@
                   </ng-container>
                 </div>
               </div>
-              <p>{{ post.excerpt }}</p>
+              <p>{{ post?.summary }}</p>
             </div>
           </article>
           <!-- Pagination -->
@@ -168,3 +163,9 @@
     </div>
   </div>
 </section>
+
+<ng-template #loader_content>
+  <div class="linear-background">
+   
+  </div>
+</ng-template>

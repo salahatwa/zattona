@@ -13,6 +13,7 @@ import { SeoService } from "src/app/shared/services/seo.service";
   styleUrls: ["./tags-listing.component.scss"],
 })
 export class TagsListingComponent implements OnInit {
+  isLoading:boolean=false;
   page = { id: 'tags-list', itemsPerPage: Constants.PAGE_SIZE, currentPage: 0, totalItems: 0 };
   defaultImage = Constants.DEFAULT_IMG;
 
@@ -37,7 +38,7 @@ export class TagsListingComponent implements OnInit {
         this.seoService.setMetaTags({
           title: `${this.commanService.capitalizeFirstLetter(
             this.tag
-          )} |` + Constants.SITE_PREFIX,
+          )} ` + Constants.SITE_PREFIX,
         });
 
         if (this.tag)
@@ -50,17 +51,22 @@ export class TagsListingComponent implements OnInit {
   }
 
   private getAllTags() {
+    this.isLoading=true;
+    this.ngxService.start();
     this.tagService.listTags().pipe(finalize(() => {
-
+        this.isLoading=false;
+        this.ngxService.stop();
     })).subscribe((response) => {
       this.tagsList = response?.data;
     });
   }
 
   getPage(page: number) {
+    this.isLoading=true;
     this.ngxService.start();
     this.page.currentPage = page > 0 ? page - 1 : page;
     this.tagService.listPostsBySlug(this.tag, this.page.currentPage, this.page.itemsPerPage).pipe(finalize(() => {
+      this.isLoading=false;
       this.ngxService.stop();
     })).subscribe((response) => {
       this.posts = response?.data?.content;
