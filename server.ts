@@ -2,6 +2,7 @@ import "zone.js/dist/zone-node";
 
 import { ngExpressEngine } from "@nguniversal/express-engine";
 import * as express from "express";
+import * as compression from 'compression';
 import { join } from "path";
 
 import { AppServerModule } from "./src/main.server";
@@ -46,6 +47,18 @@ export function app() {
     request(options).pipe(res);
   });  */
   
+  server.all("/zattona.xml", function (req, res) {
+    // we need to redirect the sitemap request directly to the backend
+    var options = {
+      url: sitemapUrl,
+      headers: {
+        Accept: "application/xml",
+      },
+    };
+
+    request(options).pipe(res);
+  });
+
    server.all("/sitemap.xml", function (req, res) {
     // we need to redirect the sitemap request directly to the backend
     var options = {
@@ -107,6 +120,8 @@ function run() {
 
   // Start up the Node server
   const server = app();
+  // gzip
+  server.use(compression());
   server.listen(port, () => {
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
