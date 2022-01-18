@@ -26,7 +26,7 @@
     </div>
     
     <div class="row">
-        <div class="col-md-6" style="padding:0.5em;">
+        <div class="col-md-6 p-2">
             <div class="card">
                 <div class="card-body">
                     <h2 class="card-title">Your location  <span>
@@ -34,7 +34,7 @@
                         [defaultImage]="'./assets/images/defaultFlag.jpg'"
                         [lazyLoad]="ipDetails?.location?.country_flag"
                         [alt]="ipDetails?.country_name+' Flag'"
-                         style="width:45px;height:30px"/>
+                        class="c-w"/>
                     </span></h2>
                   <div class="row form-group ">
                     <div class="col-8">
@@ -72,7 +72,7 @@
             </div>
         </div>
             
-        <div class="col-md-6" style="padding:0.5em;">
+        <div class="col-md-6 p-2">
             <div class="card"> 
                 <div class="card-body">
                     <h2 class="card-title">Country Info</h2>
@@ -104,9 +104,5 @@
             </div>
         </div>
     </div>
-    <!-- <div style="margin-top: 1em;">
-        <button type="button" class="btn btn-primary btn-lg btn-block">Sign up !</button>
-    </div> -->
-
   </div>
 </section>
