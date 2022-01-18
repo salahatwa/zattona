@@ -20,7 +20,7 @@ export class SeoService {
     config = {
       title: Constants.SITE_TITLE,
       description: Constants.SITE_DESC,
-      image: config?.image ? `${config?.image}` : Constants.DEFAULT_IMG,
+      image: (config?.image&&config.image!==''&&config.image?.length>1)? `${config.image}` : Constants.DEFAULT_IMG,
       url: `${this.dom.location.origin}${this.router.url}`,
       ...config,
     };
