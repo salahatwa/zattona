@@ -20,9 +20,10 @@ export class SeoService {
     config = {
       title: Constants.SITE_TITLE,
       description: Constants.SITE_DESC,
-      image: (config?.image&&config.image!==''&&config.image?.length>1)? `${config.image}` : Constants.DEFAULT_IMG,
       url: `${this.dom.location.origin}${this.router.url}`,
       ...config,
+      keywords:(config?.keywords&&config.keywords!=='')? config.keywords : Constants.SITE_KEYWORDS,
+      image: (config?.image&&config.image!=='')? config.image : Constants.SITE_URL_ICON,
     };
 
     // Set title
@@ -30,6 +31,9 @@ export class SeoService {
 
     // Google
     this.meta.updateTag({ name: "Description", content: config.description });
+    this.meta.updateTag({ name: "Keywords", content: config.keywords });
+
+
 
     // Twitter
     this.meta.updateTag({ name: "twitter:card", content: "summary" });

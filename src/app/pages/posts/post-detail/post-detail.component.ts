@@ -79,6 +79,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
           title: `${this.post.title} ` + Constants.SITE_PREFIX,
           description: `${this.post?.metaDescription}`,
           image: `${this.post?.thumbnail}`,
+          keywords:`${this.post?.metaKeywords}`,
         });
       });
     });
