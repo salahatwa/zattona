@@ -10,5 +10,7 @@ export class Constants {
     static SITE_TAG = "@zattona";
 
     static GOOGLE_SITE_VERIFICATION="8ogzYaST25BaliGB6QphngWQpu9sDnXHxNtZQ5dzg5Q";
+    static YANDIX_VERIFICATION="011ababa95dd13ad";
+    static BING_VERIFICATION="B5D4DB87ECC982F1090EE4D2A0F70A62";
 
 }

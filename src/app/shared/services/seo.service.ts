@@ -32,6 +32,13 @@ export class SeoService {
     // Google
     this.meta.updateTag({ name: "Description", content: config.description });
     this.meta.updateTag({ name: "Keywords", content: config.keywords });
+    
+    this.meta.updateTag({ name: "google-site-verification", content: Constants.GOOGLE_SITE_VERIFICATION });
+    this.meta.updateTag({ name: "yandex-verification", content: Constants.YANDIX_VERIFICATION });
+    this.meta.updateTag({ name: "msvalidate.01", content: Constants.BING_VERIFICATION });
+
+    // <meta name="msvalidate.01" content="B5D4DB87ECC982F1090EE4D2A0F70A62" />
+    // <meta name="yandex-verification" content="011ababa95dd13ad" />
 
 
 
