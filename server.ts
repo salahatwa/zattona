@@ -61,7 +61,7 @@ export function app() {
     var options = {
       url: robotsUrl,
       headers: {
-        Accept: "application/xml",
+        Accept: "text/plain",
       },
     };
 
@@ -75,7 +75,7 @@ export function app() {
     var options = {
       url: sitemapHtmlUrl,
       headers: {
-        Accept: "text/plain",
+        Accept: "application/html",
       },
     };
 
