@@ -7,6 +7,8 @@ export class Constants {
     static DEFAULT_IMG = "./assets/images/700x400.svg";
     static SITE_URL_ICON = "https://res.cloudinary.com/genhub/image/upload/v1642687423/z-l_xulkcu.png";
     static EMAIL_PATTERN = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    static SITE_TAG = "@zattona"
+    static SITE_TAG = "@zattona";
+
+    static GOOGLE_SITE_VERIFICATION="8ogzYaST25BaliGB6QphngWQpu9sDnXHxNtZQ5dzg5Q";
 
 }
