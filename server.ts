@@ -1,23 +1,30 @@
-import "zone.js/dist/zone-node";
-
-import { ngExpressEngine } from "@nguniversal/express-engine";
-import * as express from "express";
-import * as compression from 'compression';
-import { join } from "path";
-
-import { AppServerModule } from "./src/main.server";
 import { APP_BASE_HREF } from "@angular/common";
+import { ngExpressEngine } from "@nguniversal/express-engine";
+import * as compression from 'compression';
+import * as express from "express";
 import { existsSync } from "fs";
+import { join } from "path";
+import { environment } from "src/environments/environment";
+import "zone.js/dist/zone-node";
+import { AppServerModule } from "./src/main.server";
+
+
 const request = require("request");
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app() {
   const server = express();
   const distFolder = join(process.cwd(), "dist", "browser");
-  const sitemapUrl = "https://nodeblog-admin.herokuapp.com/sitemap.xml";
-  // const rssUrl = "https://nodeblog-api.herokuapp.com/rss.xml";
-  const rssUrl = "https://nodeblog-admin.herokuapp.com/feed/rss";
-  const atomUrl = "https://nodeblog-admin.herokuapp.com/feed/atom";
+
+  const baseURL = environment.apiUrl;
+
+  const sitemapUrl = baseURL + "/sitemap.xml";
+  const rssUrl = baseURL + "/rss.xml";
+  const atomUrl = baseURL + "/atom.xml";
+  const sitemapHtmlUrl = baseURL + "/sitemap.html";
+  const robotsUrl = baseURL + "/robots.txt";
+
+
   // const distFolder = join(process.cwd(), 'dist/nodeblog/browser');
   const indexHtml = existsSync(join(distFolder, "index.original.html"))
     ? "index.original.html"
@@ -35,19 +42,47 @@ export function app() {
   server.set("views", distFolder);
 
   // ---- SERVE SITEMAPS.XML FROM A DEDICATED API ---- //
-   /* server.all("/rss.xml", function (req, res) {
-    console.log('sds');
+  /* server.all("/rss.xml", function (req, res) {
+   console.log('sds');
+   var options = {
+     url: sitemapUrl,
+     headers: {
+       Accept: "application/xml",
+     },
+   };
+
+   request(options).pipe(res);
+ });  */
+
+
+
+  server.all("/robots.txt", function (req, res) {
+    // we need to redirect the sitemap request directly to the backend
     var options = {
-      url: sitemapUrl,
+      url: robotsUrl,
       headers: {
         Accept: "application/xml",
       },
     };
 
     request(options).pipe(res);
-  });  */
-  
-  server.all("/zattona.xml", function (req, res) {
+  });
+
+
+
+  server.all("/sitemap.html", function (req, res) {
+    // we need to redirect the sitemap request directly to the backend
+    var options = {
+      url: sitemapHtmlUrl,
+      headers: {
+        Accept: "text/plain",
+      },
+    };
+
+    request(options).pipe(res);
+  });
+
+  server.all("/sitemap.xml", function (req, res) {
     // we need to redirect the sitemap request directly to the backend
     var options = {
       url: sitemapUrl,
@@ -59,18 +94,7 @@ export function app() {
     request(options).pipe(res);
   });
 
-   server.all("/sitemap.xml", function (req, res) {
-    // we need to redirect the sitemap request directly to the backend
-    var options = {
-      url: sitemapUrl,
-      headers: {
-        Accept: "application/xml",
-      },
-    };
-
-    request(options).pipe(res);
-  });
-   server.all("/rss.xml", function (req, res) {
+  server.all("/rss.xml", function (req, res) {
     // we need to redirect the sitemap request directly to the backend
     var options = {
       url: rssUrl,
@@ -81,7 +105,7 @@ export function app() {
 
     request(options).pipe(res);
   });
-   server.all("/atom.xml", function (req, res) {
+  server.all("/atom.xml", function (req, res) {
     // we need to redirect the sitemap request directly to the backend
     var options = {
       url: atomUrl,
@@ -92,7 +116,7 @@ export function app() {
 
     request(options).pipe(res);
   });
- 
+
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
