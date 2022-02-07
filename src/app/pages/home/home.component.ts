@@ -20,7 +20,7 @@ import { ConfigrationsService, UserService } from "./../../core/services/api";
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  defaultImage = "./assets/images/400x200.png";
+  defaultImage = Constants.DEFAULT_IMG;
 
   subscribtion: Subscription;
 
@@ -42,11 +42,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
   latestPosts: any = [];
-  angularPosts: any = [];
-  jsPosts: any = [];
-  wordpressPosts: any = [];
-  devPosts: any = [];
-  nodePosts: any = [];
   popularPosts: any = [];
 
 
@@ -62,11 +57,20 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   getLatestPosts() {
     this.subscribtion = this.configService.data$.subscribe(
       (data) => {
-        console.log(data);
         if (data?.data)
           this.latestPosts = data.data.latestPosts;
       }
     );
+  }
+
+  chunk(arr: any[],size): any[] {
+
+    var myArray = [];
+    for(var i = 0; i < arr.length; i += size) {
+      myArray.push(arr.slice(i, i+size));
+    }
+    console.log(myArray);
+    return myArray;
   }
 
 

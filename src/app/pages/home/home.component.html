@@ -5,7 +5,7 @@
 
         <div class="all-news-block">
           <h2 class="news-title">
-            <span>Latest Articles</span>
+            <span>Latest Tutorials</span>
           </h2>
           <button class="view-all-button" routerLink="/post" aria-label="Previous" type="button">View All</button>
           <div class="all-news">
@@ -17,7 +17,6 @@
                     <a routerLink="/post/{{post.slug}}">
                       <img class="img-fluid" [defaultImage]="defaultImage" width="400px" height="200px" [lazyLoad]="post?.thumbnail"
                         [alt]="post.title">
-                        <!-- <app-post-img  [post]="post"></app-post-img> -->
                     </a>
                   </div>
                   <div class="post-content">
@@ -47,37 +46,22 @@
 
 
 
-        <!-- <app-two-col-post [posts]="angularPosts" title="Angular" slug="angular"></app-two-col-post>
-        <app-two-col-post [posts]="nodePosts" title="Nodejs" slug="nodejs"></app-two-col-post> -->
+         <!-- <app-two-col-post [posts]="latestPosts" title="Latest Tutorials" ></app-two-col-post> -->
 
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-
         <app-sidebar></app-sidebar>
-
       </div>
     </div>
   </div>
 </section>
 
-<!-- <section class="news-style-four bg-light section-padding">
+ <!-- <section class="news-style-four bg-light section-padding">
   <div class="container">
     <div class="row">
       <div class="col-lg-4 col-md-6">
-        <app-verticle-post-card [posts]="jsPosts" type="javascript" title="javascript"></app-verticle-post-card>
-      </div>
-    
-
-      <div class="col-lg-4 col-md-6">
-        <app-verticle-post-card [posts]="wordpressPosts" type="wordpress" title="wordpress"></app-verticle-post-card>
-      </div>
-
-      <div class="col-lg-4 col-md-6">
-        <app-verticle-post-card [posts]="wordpressPosts" type="wordpress" title="wordpress"></app-verticle-post-card>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <app-verticle-post-card [posts]="wordpressPosts" type="wordpress" title="wordpress"></app-verticle-post-card>
+        <app-verticle-post-card [posts]="latestPosts" title="Latest Tutorials"></app-verticle-post-card>
       </div>
     </div>
   </div>
-</section> -->
+</section>  -->

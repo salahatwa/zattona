@@ -27,33 +27,13 @@ export class AppComponent {
     )
       .subscribe(() => {
         this.seoService.createLinkForCanonicalURL(this.document.location.origin + this.router.url);
-      })
+      });
   }
 
-  title = "nodeblog";
-
-
   private init() {
- 
-
-    if (this.sessionStorageService.getSessionStorage("latestPosts")) {
-      let result = JSON.parse(
-        this.sessionStorageService.getSessionStorage("latestPosts")
-      );
-      console.log(result);
-      this.configService.sendData(result);
-
-    } else {
-
-      this.configService.init().subscribe((data) => {
-        console.log(data);
-        this.configService.sendData(data);
-        this.sessionStorageService.setSessionStorage(
-          "latestPosts",
-          JSON.stringify(data)
-        );
-      });
-    }
+    this.configService.init().subscribe((data) => {
+      this.configService.sendData(data);
+    });
   }
 
 }

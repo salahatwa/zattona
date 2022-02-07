@@ -35,7 +35,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
           icon: "fa fa-address-book",
           url: "/resources/links",
           team: "Resources"
-        }
+        },
+        {
+          name: "Tags",
+          icon: "fa fa-tags",
+          url: "/resources/tags",
+          team: "Resources"
+        },
       ]
     }
   ];
