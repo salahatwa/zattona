@@ -146,8 +146,24 @@ function run() {
   const server = app();
   // gzip
   server.use(compression());
+  server.use(express.static("public"));
+
+  //minifies css & js files sent to client for optimization
+  server.get('*.js', function (req, res, next) {
+    req.url = req.url + '.gz';
+    res.set('Content-Encoding', 'gzip');
+    res.set('Content-Type', 'text/javascript');
+    next();
+  });
+  server.get('*.css', function (req, res, next) {
+    req.url = req.url + '.gz';
+    res.set('Content-Encoding', 'gzip');
+    res.set('Content-Type', 'text/css');
+    next();
+  });
+
   server.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
+    console.log(`Zattona listening on http://localhost:${port}`);
   });
 }
 
