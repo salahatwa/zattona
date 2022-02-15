@@ -14,6 +14,14 @@ const request = require("request");
 // The Express app is exported so that it can be used by serverless Functions.
 export function app() {
   const server = express();
+
+  server.use(compression({
+    filter: function (req, res) {
+      return (/json|text|javascript|css|font|svg/).test(res.getHeader('Content-Type'));
+    },
+    level: 9
+  }));
+
   const distFolder = join(process.cwd(), "dist", "browser");
 
   const baseURL = environment.apiUrl;
@@ -40,19 +48,6 @@ export function app() {
 
   server.set("view engine", "html");
   server.set("views", distFolder);
-
-  // ---- SERVE SITEMAPS.XML FROM A DEDICATED API ---- //
-  /* server.all("/rss.xml", function (req, res) {
-   console.log('sds');
-   var options = {
-     url: sitemapUrl,
-     headers: {
-       Accept: "application/xml",
-     },
-   };
-
-   request(options).pipe(res);
- });  */
 
 
 
@@ -141,26 +136,9 @@ export function app() {
 
 function run() {
   const port = process.env.PORT || 4000;
-
   // Start up the Node server
   const server = app();
-  // gzip
-  server.use(compression());
   server.use(express.static("public"));
-
-  //minifies css & js files sent to client for optimization
-  server.get('*.js', function (req, res, next) {
-    req.url = req.url + '.gz';
-    res.set('Content-Encoding', 'gzip');
-    res.set('Content-Type', 'text/javascript');
-    next();
-  });
-  server.get('*.css', function (req, res, next) {
-    req.url = req.url + '.gz';
-    res.set('Content-Encoding', 'gzip');
-    res.set('Content-Type', 'text/css');
-    next();
-  });
 
   server.listen(port, () => {
     console.log(`Zattona listening on http://localhost:${port}`);
