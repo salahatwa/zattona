@@ -26,6 +26,7 @@ import { CommanService } from "./shared/services/comman.service";
 import { HighlightService } from "./shared/services/highlight.service";
 import { LocalStorageService } from "./shared/services/local-storage.service";
 import { SeoService } from "./shared/services/seo.service";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -56,6 +57,7 @@ import { SeoService } from "./shared/services/seo.service";
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production,
     }),
+    NgbModule,
   ],
   providers: [
     HighlightService,
