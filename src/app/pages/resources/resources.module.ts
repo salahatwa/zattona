@@ -17,7 +17,7 @@ import { ImageFromHtmlComponent } from './tools/image-from-html/image-from-html.
 import { TemplateResultComponent } from './tools/image-from-html/template-result/template-result.component';
 import { TagsComponent } from './tags/tags.component';
 import { FilterPipe } from "src/app/shared/pipes/array.filter.pipe";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+// import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 const routes: Routes = [
   {

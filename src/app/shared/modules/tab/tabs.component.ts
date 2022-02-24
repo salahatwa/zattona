@@ -24,10 +24,8 @@ import TabComponent from "./tab.component";
         margin:2px;
       }
       .tabs-container .tab{
-        // padding:5px;
         text-align:center;
         width:inherit;
-        // background-color:lightgray;
         cursor: pointer;
 
       }
@@ -37,9 +35,7 @@ import TabComponent from "./tab.component";
            opacity:90%;
       }
        .tabs-container .tab.active{
-        //  color:white;
          background-color:#374957;
-        //  border-bottom:2px solid blue;
          }
     `
   ]
