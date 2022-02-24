@@ -24,6 +24,10 @@ export interface Ouath {
 
 
 export interface GithubUser {
+    access_token?: string;
+    refresh_token?: string;
+    expires_in?: string;
+
     login?: string;
     id?: number;
     node_id?: string;

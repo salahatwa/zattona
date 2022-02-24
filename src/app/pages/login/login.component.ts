@@ -10,9 +10,12 @@ export class LoginComponent implements OnInit {
 
   constructor() { }
 
-  githubUrl: string = 'https://github.com/login/oauth/authorize?client_id=' + GitConfig.client_id + '&scope=user%20repo%20repo:status%20repo_deployment%20public_repo%20repo:invite%20security_events&redirect_uri=' + GitConfig.redirect_uri;
+  githubUrl: string = 'https://github.com/login/oauth/authorize?client_id=' + GitConfig.client_id + '&scope=public_repo,user&redirect_uri=' + GitConfig.redirect_uri;
 
   ngOnInit() {
   }
 
+  onNavigate(){
+    window.open(this.githubUrl, "_self");
+}
 }

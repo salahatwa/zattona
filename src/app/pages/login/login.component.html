@@ -1,0 +1,76 @@
+<!-- <p>Please login with your <strong>GitHub account</strong>.</p>
+<a href="{{githubUrl}}" class="login__btn login__btn--full">
+  Login
+</a> -->
+
+
+<section id="main" class="block-wrapper container">
+  <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-pattern">
+
+              <div class="card-body p-4">
+
+                  <div class="text-center w-75 m-auto">
+                      <a routerLink="/">
+                          <span>
+                              <img src="./assets/images/logo.svg" alt="zattona logo" height="48"></span>
+                      </a>
+                      <p class="text-muted mb-4 mt-3">If you have Github account</p>
+                  </div>
+
+
+
+                  <!-- <div class="form-group mb-3">
+                      <label for="emailaddress">Email address</label>
+                      <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email" maxlength="100">
+                  </div>
+
+                  <div class="form-group mb-3">
+                      <label for="password">Password</label>
+                      <input class="form-control" type="password" required="" id="password" placeholder="Enter your password" maxlength="32">
+                  </div>
+
+                  <div class="form-group mb-3">
+                      <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="remember">
+                          <label class="custom-control-label" for="remember">Remember me</label>
+                      </div>
+                  </div> -->
+
+                  <div class="form-group mb-0 text-center">
+                      <!-- <input id="btnSignIn" type="button" value="Sign In" class="btn btn-success btn-block" onclick="buttonClick()"> -->
+                      
+                      
+
+                      <button class="btn btn-primary" type="button" (click)="onNavigate()">
+                        <i class="fa fa-github"></i>
+                        Sign with github
+                        <div id="spinDiv" class="spinner-grow spinner-grow-sm" role="status" >
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                      </button>
+                  </div>
+
+
+
+
+              </div>
+              <!-- end card-body -->
+          </div>
+          <!-- end card -->
+
+          <div class="row mt-3">
+              <div class="col-12 text-center">
+                  <p><a href="reset-password" class="text-white-50 ml-1">Forgot your password?</a></p>
+                  <p class="text-white-50">Don't have an account? <a href="register" class="text-white ml-1"><b>Sign Up</b></a></p>
+              </div>
+              <!-- end col -->
+          </div>
+          <!-- end row -->
+
+      </div>
+      <!-- end col -->
+  </div>
+  <!-- end row -->
+</section>

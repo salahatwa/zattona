@@ -8,6 +8,8 @@ import { environment } from "src/environments/environment";
 import "zone.js/dist/zone-node";
 import { AppServerModule } from "./src/main.server";
 
+import * as kjua from 'kjua-svg';
+
 
 const request = require("request");
 
@@ -111,6 +113,30 @@ export function app() {
 
     request(options).pipe(res);
   });
+
+  //https://www.codegrepper.com/code-examples/javascript/passing+parameters+in+url+express
+  //   GET /something?color1=red&color2=blue
+
+  server.all('/qr', (req, res) => {
+
+    console.log(req.query.content);
+    var options: kjua.KjuaOptions = {
+      text: req.query.content + ''
+    };
+    // const code = kjua(options);
+    // document.getElementById("container").appendChild(code);
+    // console.log(code);
+    // var options = {
+    //   url: req.baseUrl,
+    //   headers: {
+    //     Accept: "application/html",
+    //   },
+    // };
+
+    request(options).pipe(res);
+  })
+
+  // req.params refers to items with a ':' in the URL and req.query refers to items associated with the '?
 
 
   // Example Express Rest API endpoints

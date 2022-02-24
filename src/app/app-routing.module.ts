@@ -3,13 +3,17 @@ import { RouterModule, Routes } from "@angular/router";
 import { ContactComponent } from "./pages/contact/contact.component";
 import { PageNotFoundComponent } from "./pages/page-not-found/page-not-found.component";
 import { SiteInfoComponent } from "./pages/site-info/site-info.component";
-import { VerificationComponent } from "./pages/verification/verification.component";
 
 
 const routes: Routes = [
   {
     path: "",
     loadChildren: () => import("./pages/home/home.module").then((m) => m.HomeModule),
+  },
+  {
+    path: "login",
+    loadChildren: () =>
+      import("./pages/login/login.module").then((m) => m.LoginModule),
   },
   {
     path: "post",
@@ -32,13 +36,15 @@ const routes: Routes = [
       import("./pages/resources/resources.module").then((m) => m.ResourcesModule),
   },
   {
+    path: "git-tools",
+    loadChildren: () =>
+      import("./pages/git-tools/git-tools.module").then((m) => m.GitToolsModule),
+  },
+  {
     path: "contact",
     component: ContactComponent,
   },
-  {
-    path: "verify",
-    component: VerificationComponent,
-  },
+
   {
     path: "info/:slug",
     component: SiteInfoComponent,
@@ -68,6 +74,5 @@ export class AppRoutingModule { }
 
 export const routedComponents = [
   SiteInfoComponent,
-  PageNotFoundComponent,
-  VerificationComponent
+  PageNotFoundComponent
 ];
