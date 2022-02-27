@@ -21,20 +21,10 @@
               </div>
             </header>
             <div
-              class="
-                aff-post-content
-                cf
-                aff-entry-content
-                has-share-float
-                aff-content-spacious
-              "
+              class="aff-post-content cf aff-entry-content has-share-float aff-content-spacious"
             >
               <div
-                class="
-                  aff-post-meta aff-post-meta-c aff-post-meta-left
-                  the-aff-post-meta
-                  has-below
-                "
+                class="aff-post-meta aff-post-meta-c aff-post-meta-left the-aff-post-meta has-below"
               >
                 <h2 class="is-title aff-post-title-alt">
                   <a
@@ -44,32 +34,17 @@
                   >
                 </h2>
                 <div class="meta-title">
-                  <div
-                    class="
-                      aff-post-meta aff-post-meta-c aff-post-meta-left
-                      has-below
-                    "
+                  <span class="badge badge-info">
+                    Updated on
+                    {{ firstPost.updateTime | date: "longDate" }}</span
                   >
-                    <span class="post-date">
-                      Updated on
-                      <strong>{{
-                        firstPost.updateTime | date: "longDate"
-                      }}</strong></span
-                    >
-                  </div>
                 </div>
-                <div
-                  class="aff-meta-above"
-                  *ngFor="let category of firstPost?.categories"
-                >
-                  <span class="aff-cat-labels"
-                    ><a
-                      routerLink="/category/{{ category?.slug }}"
-                      class="category"
-                      rel="category"
-                      >{{ category?.name }}</a
-                    >
-                  </span>
+                <div *ngFor="let category of firstPost?.categories">
+                  <a
+                    routerLink="/category/{{ category?.slug }}"
+                    class="badge badge-pill badge-primary"
+                    >{{ category?.name }}</a
+                  >
                 </div>
               </div>
               <p>{{ firstPost?.summary }}</p>
@@ -77,14 +52,7 @@
           </article>
           <article class="aff-post aff-posts-flex-grid has-post-thumbnail">
             <div
-              class="
-                aff-post-content1
-                cf
-                aff-entry-content
-                has-share-float
-                aff-content-spacious1
-                lay-8
-              "
+              class="aff-post-content1 cf aff-entry-content has-share-float aff-content-spacious1 lay-8"
               *ngFor="let post of posts | slice: 1 | paginate: page"
             >
               <figure class="aff-wp-caption post-figure-margin-bottom">
@@ -92,11 +60,7 @@
                   <img
                     width="500"
                     height="270"
-                    class="
-                      attachment-grid-featured-image
-                      size-grid-featured-image
-                      wp-post-image
-                    "
+                    class="attachment-grid-featured-image size-grid-featured-image wp-post-image"
                     [defaultImage]="defaultImage"
                     [lazyLoad]="post?.thumbnail"
                     [alt]="post?.title"
@@ -105,11 +69,7 @@
                 <figcaption class="aff-wp-caption-text"></figcaption>
               </figure>
               <div
-                class="
-                  aff-post-meta aff-post-meta-c aff-post-meta-left
-                  the-aff-post-meta
-                  has-below
-                "
+                class="aff-post-meta aff-post-meta-c aff-post-meta-left the-aff-post-meta has-below"
               >
                 <h2 class="is-title aff-post-title-alt" itemprop="headline">
                   <a
@@ -119,41 +79,20 @@
                   >
                 </h2>
                 <div class="meta-title">
-                  <div
-                    class="
-                      aff-post-meta aff-post-meta-c aff-post-meta-left
-                      has-below
-                    "
+                  <a href="#"
+                    ><span class="badge badge-info"
+                      >Updated on {{
+                        firstPost.updateTime | date: "longDate"
+                      }}</span
+                    ></a
                   >
-                    <!--  <span
-                  class="aff-meta-item aff-post-author" itemprop="author">
-                  <span class="by"> Written by </span><a
-                    href="#"
-                    title="Posts by">Jignesh zala</a></span> --><a
-                      href="#"
-                      class="aff-meta-item date-link"
-                      itemprop="datePublished"
-                      ><span class="post-date"
-                        >Updated on
-                        <strong>{{
-                          firstPost.updateTime | date: "longDate"
-                        }}</strong></span
-                      ></a
-                    >
-                  </div>
                 </div>
-                <div
-                  class="aff-meta-above"
-                  *ngFor="let category of post?.categories"
-                >
-                  <span class="aff-cat-labels"
-                    ><a
-                      routerLink="/category/{{ category?.slug }}"
-                      class="category"
-                      rel="category"
-                      >{{ category?.name }}</a
-                    >
-                  </span>
+                <div *ngFor="let category of post?.categories">
+                  <a
+                    routerLink="/category/{{ category?.slug }}"
+                    class="badge badge-pill badge-primary"
+                    >{{ category?.name }}</a
+                  >
                 </div>
               </div>
               <p>{{ post?.summary }}</p>
@@ -176,9 +115,7 @@
         </ng-container>
       </div>
 
-      <aside
-        class="col-lg-4 col-md-12 sidebars s_right"
-      >
+      <aside class="col-lg-4 col-md-12 sidebars s_right">
         <app-sidebar></app-sidebar>
       </aside>
     </div>

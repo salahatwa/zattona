@@ -34,21 +34,9 @@
                   >
                 </h2>
                 <div class="meta-title">
-                  <div
-                    class="aff-post-meta aff-post-meta-c aff-post-meta-left has-below"
-                  >
-                    <span class="post-date">
-                      Published on
-                      {{ firstPost?.createTime | date: "longDate" }}</span
+                    <span class="badge badge-info">
+                      Published on {{ firstPost?.createTime | date: "longDate" }}</span
                     >
-                  </div>
-                </div>
-                <div class="aff-meta-above">
-                  <span class="aff-cat-labels"
-                    ><a href="#" class="category" rel="category"
-                      >Angular</a
-                    ></span
-                  >
                 </div>
               </div>
               <p>{{ firstPost.excerpt }}</p>
@@ -92,30 +80,11 @@
                   >
                 </h2>
                 <div class="meta-title">
-                  <div
-                    class="aff-post-meta aff-post-meta-c aff-post-meta-left has-below"
-                  >
-                    <!--  <span
-                  class="aff-meta-item aff-post-author" itemprop="author">
-                  <span class="by"> Written by </span><a
-                    href="#"
-                    title="Posts by">Jignesh zala</a></span> --><a
-                      href="#"
-                      class="aff-meta-item date-link"
-                      itemprop="datePublished"
-                      ><span class="post-date">
-                        Published on
-                        {{ post?.createTime | date: "longDate" }}</span
+                  <a href="#"
+                      ><span class="badge badge-info">
+                        Published on {{ post?.createTime | date: "longDate" }}</span
                       ></a
                     >
-                  </div>
-                </div>
-                <div class="aff-meta-above">
-                  <span class="aff-cat-labels"
-                    ><a href="#" class="category" rel="category"
-                      >Nodejs</a
-                    ></span
-                  >
                 </div>
               </div>
               <p>{{ post.excerpt }}</p>
@@ -145,10 +114,9 @@
                 <span>Keep in touch</span>
               </h3>
 
-              <ul class="list-inline social-widget">
+              <ul class="list-inline">
                 <li class="list-inline-item">
                   <a
-                    class="social-page facebook"
                     rel="noopener noreferrer"
                     href="https://www.facebook.com/TutsCoder"
                     target="_blank"
@@ -159,7 +127,6 @@
                 </li>
                 <li class="list-inline-item">
                   <a
-                    class="social-page twitter"
                     rel="noopener noreferrer"
                     href="https://twitter.com/tutscoder"
                     target="_blank"
@@ -170,7 +137,6 @@
                 </li>
                 <li class="list-inline-item">
                   <a
-                    class="social-page youtube"
                     rel="noopener noreferrer"
                     href="https://www.youtube.com/channel/UCmObcNnWeVBlSeO_iQhsRcA"
                     target="_blank"
@@ -182,7 +148,6 @@
 
                 <li class="list-inline-item">
                   <a
-                    class="social-page pinterest"
                     rel="noopener noreferrer"
                     href="https://in.pinterest.com/tutscoder"
                     target="_blank"

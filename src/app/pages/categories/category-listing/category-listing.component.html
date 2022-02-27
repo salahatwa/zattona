@@ -1,5 +1,5 @@
 <section class="block-wrapper container">
-  <div *ngIf="posts?.length > 0;else loader_content">
+  <div *ngIf="posts?.length > 0; else loader_content">
     <div class="row">
       <div class="col-lg-8 col-md-12 layout_8 main-content DESC">
         <ng-container *ngIf="firstPost">
@@ -21,20 +21,10 @@
               </div>
             </header>
             <div
-              class="
-                aff-post-content
-                cf
-                aff-entry-content
-                has-share-float
-                aff-content-spacious
-              "
+              class="aff-post-content cf aff-entry-content has-share-float aff-content-spacious"
             >
               <div
-                class="
-                  aff-post-meta aff-post-meta-c aff-post-meta-left
-                  the-aff-post-meta
-                  has-below
-                "
+                class="aff-post-meta aff-post-meta-c aff-post-meta-left the-aff-post-meta has-below"
               >
                 <h2 class="is-title aff-post-title-alt">
                   <a
@@ -44,35 +34,19 @@
                   >
                 </h2>
                 <div class="meta-title">
-                  <div
-                    class="
-                      aff-post-meta aff-post-meta-c aff-post-meta-left
-                      has-below
-                    "
-                  >
-                    <span class="post-date">
-                      Updated on
-                      <strong>{{
+                    <span class="badge badge-info">
+                      Updated on {{
                         firstPost?.updateTime | date: "longDate"
-                      }}</strong></span
+                      }}</span
                     >
-                  </div>
                 </div>
-               
               </div>
               <p>{{ firstPost?.summary }}</p>
             </div>
           </article>
           <article class="aff-post aff-posts-flex-grid has-post-thumbnail">
             <div
-              class="
-                aff-post-content1
-                cf
-                aff-entry-content
-                has-share-float
-                aff-content-spacious1
-                lay-8
-              "
+              class="aff-post-content1 cf aff-entry-content has-share-float aff-content-spacious1 lay-8"
               *ngFor="let post of posts | slice: 1 | paginate: page"
             >
               <figure class="aff-wp-caption post-figure-margin-bottom">
@@ -82,22 +56,14 @@
                     height="270"
                     [defaultImage]="defaultImage"
                     [lazyLoad]="post?.thumbnail"
-                    class="
-                      attachment-grid-featured-image
-                      size-grid-featured-image
-                      wp-post-image
-                    "
+                    class="attachment-grid-featured-image size-grid-featured-image wp-post-image"
                     [alt]="post.title"
                     itemprop="image"
                 /></a>
                 <figcaption class="aff-wp-caption-text"></figcaption>
               </figure>
               <div
-                class="
-                  aff-post-meta aff-post-meta-c aff-post-meta-left
-                  the-aff-post-meta
-                  has-below
-                "
+                class="aff-post-meta aff-post-meta-c aff-post-meta-left the-aff-post-meta has-below"
               >
                 <h2 class="is-title aff-post-title-alt" itemprop="headline">
                   <a routerLink="/post/{{ post.slug }}" [title]="post.title">{{
@@ -105,34 +71,23 @@
                   }}</a>
                 </h2>
                 <div class="meta-title">
-                  <div
-                    class="
-                      aff-post-meta aff-post-meta-c aff-post-meta-left
-                      has-below
-                    "
-                  >
                     <a
                       href="#"
-                      class="aff-meta-item date-link"
-                      itemprop="datePublished"
-                      ><span class="post-date">
-                        Updated on
-                        <strong>{{
+                      ><span class="badge badge-info">
+                        Updated on {{
                           post?.updateTime | date: "longDate"
-                        }}</strong></span
+                        }}</span
                       ></a
                     >
-                  </div>
                 </div>
-                <div class="aff-meta-above">
-                  <ng-container *ngFor="let cat of post?.categories">
-                    <a
-                      routerLink="/category/{{ cat?.slug }}"
-                      class="post-category ml-2"
-                      >{{ cat?.name }}</a
-                    >
-                  </ng-container>
-                </div>
+
+                <ng-container *ngFor="let cat of post?.categories">
+                  <a
+                    routerLink="/category/{{ cat?.slug }}"
+                    class="badge badge-pill badge-primary ml-2"
+                    >{{ cat?.name }}</a
+                  >
+                </ng-container>
               </div>
               <p>{{ post?.summary }}</p>
             </div>
@@ -155,9 +110,7 @@
         </ng-container>
       </div>
 
-      <aside
-        class="col-lg-4 col-md-12 sidebars s_right"
-      >
+      <aside class="col-lg-4 col-md-12 sidebars s_right">
         <app-sidebar></app-sidebar>
       </aside>
     </div>
@@ -165,7 +118,5 @@
 </section>
 
 <ng-template #loader_content>
-  <div class="linear-background">
-   
-  </div>
+  <div class="linear-background"></div>
 </ng-template>
