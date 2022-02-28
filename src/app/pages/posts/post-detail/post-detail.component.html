@@ -1,5 +1,5 @@
 <section id="main" class="block-wrapper container">
-  <div *ngIf="post;else loader_content">
+  <div *ngIf="post; else loader_content">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-8">
         <div class="content">
@@ -30,28 +30,24 @@
 
                 <h1 class="blog-post-title">{{ post?.title }}</h1>
 
-                <!-- <p class="blog-post-meta">{{post.created_at}} by <a href="#">Jignesh zala</a></p> -->
                 <p class="blog-post-meta">
-                  Last Updated on
-                  <strong>{{ post?.updateTime | date: "longDate" }}</strong>
+                  <span class="badge badge-danger"
+                    >Last Updated on
+                    {{ post?.updateTime | date: "longDate" }}</span
+                  >
                 </p>
 
                 <div class="blog-post-body">
-                  <!-- <share-buttons
-                    class="text-center"
-                    show="8"
-                    image="{{defaultImage}}"
-                  ></share-buttons> -->
+                  <div class="text-center">
+                    <share-buttons
+                      show="5"
+                      image="{{ defaultImage }}"
+                    ></share-buttons>
+                  </div>
 
                   <div class="about-image">
                     <img
-                      class="
-                        attachment-post-single-thumb
-                        size-post-single-thumb
-                        wp-post-image
-                        img-fluid
-                        article-banner
-                      "
+                      class="attachment-post-single-thumb size-post-single-thumb wp-post-image img-fluid article-banner"
                       [defaultImage]="defaultImage"
                       [lazyLoad]="post?.thumbnail"
                       [alt]="post?.title"
@@ -76,12 +72,12 @@
                   </ul>
                 </div>
               </div>
-              <!-- <div class="col-sm-12 col-xs-12 text-center">
+              <div class="col-sm-12 col-xs-12 text-center">
                 <share-buttons
-                  show="8"
-                  image="{{defaultImage}}"
+                  show="5"
+                  image="{{ defaultImage }}"
                 ></share-buttons>
-              </div> -->
+              </div>
             </div>
           </div>
           <div class="col-xs-12 col-sm-12 col-xs-12">
@@ -188,7 +184,10 @@
             </div>
           </div>
 
-          <div *ngIf="post?.nextPost||post?.prevPost" class="col-xs-12 col-sm-12 col-xs-12">
+          <div
+            *ngIf="post?.nextPost || post?.prevPost"
+            class="col-xs-12 col-sm-12 col-xs-12"
+          >
             <div class="row">
               <div id="related-posts">
                 <div class="related-post-title">
@@ -461,9 +460,5 @@
 </section>
 
 <ng-template #loader_content>
-  <div class="linear-background">
-   
-  </div>
+  <div class="linear-background"></div>
 </ng-template>
-
-

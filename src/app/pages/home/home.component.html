@@ -4,10 +4,10 @@
       <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
 
         <div class="all-news-block">
-          <h2 class="news-title">
+          <h1 class="news-title">
             <span>Latest Tutorials</span>
-          </h2>
-          <button class="view-all-button" routerLink="/post" aria-label="Previous" type="button">View All</button>
+          </h1>
+          <button class="btn btn-primary btn-sm view-all-button" routerLink="/post" type="button">View All</button>
           <div class="all-news">
 
             <div class="row">
@@ -23,7 +23,7 @@
                     <ng-container *ngFor="let cat of post?.categories">
                       <a
                         routerLink="/category/{{ cat?.slug }}"
-                        class="badge badge-pill badge-primary ml-2"
+                        class="badge badge-primary mr-1"
                         >{{ cat?.name }}</a
                       >
                     </ng-container>

@@ -21,18 +21,11 @@ $dialog-position-top: 20%;
 .view-all-button {
   height: 33px;
   width: auto;
-  top: -42px;
-  transition: 0.2s all;
-  border: 1px solid #1273eb;
   left: unset;
-  right: 35px;
   z-index: 3;
-  background: #1273eb;
-  border-radius: 2px;
-  position: absolute;
+  position: absolute!important;
   right: 15px;
   top: 0px;
-  color: #fff;
 }
 
 body {

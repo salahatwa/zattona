@@ -1,0 +1,29 @@
+<button #btn="shareButton"
+        type="button"
+        class="mr-1 btn btn-icon btn-2 btn-primary btn-sm"
+        [class.sb-show-icon]="showIcon"
+        [class.sb-show-text]="showText"
+        [shareButton]="button"
+        [url]="url"
+        [image]="image"
+        [title]="title"
+        [description]="description"
+        [tags]="tags"
+        [autoSetMeta]="autoSetMeta"
+        [disabled]="disabled"
+        (opened)="opened.emit($event)"
+        (closed)="closed.emit($event)">
+
+  <div *ngIf="btn" class="sb-content">
+
+    <div *ngIf="showIcon && btn.icon" class="sb-icon">
+      <!-- <fa-icon [icon]="icon || btn.icon" [fixedWidth]="true"></fa-icon> -->
+      <i class="{{icon || btn.icon}}"></i>
+    </div>
+
+    <div *ngIf="showText" class="sb-text">
+      {{ text || btn.text }}
+    </div>
+
+  </div>
+</button>

@@ -1,0 +1,15 @@
+
+/** fix expand button position when size is small */
+:host {
+  display: inherit;
+}
+
+.sb-group,
+.sb-button {
+  display: inline-flex;
+  align-items: flex-start;
+}
+
+.sb-group {
+  flex-wrap: wrap;
+}

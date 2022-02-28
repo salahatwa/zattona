@@ -4,6 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
 import { NgbPaginationModule } from "@ng-bootstrap/ng-bootstrap";
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { ShareButtonsModule } from "src/app/shared/modules/ngx-sharebuttons/buttons/share-buttons.module";
 import { NgxPaginationModule } from "src/app/shared/modules/pagination/ngx-pagination.module";
 import { SharedPostModule } from "../../shared/modules/shared-post.module";
 import { SidebarModule } from "../../shared/modules/sidebar.module";
@@ -43,7 +44,8 @@ const routes: Routes = [
     SidebarModule,
     RouterModule.forChild(routes),
     NgbPaginationModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ShareButtonsModule
   ],
 })
 export class PostsModule { }

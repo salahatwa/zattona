@@ -9,8 +9,14 @@ export class Constants {
     static EMAIL_PATTERN = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     static SITE_TAG = "@Zattonaa";
 
-    static GOOGLE_SITE_VERIFICATION="8ogzYaST25BaliGB6QphngWQpu9sDnXHxNtZQ5dzg5Q";
-    static YANDIX_VERIFICATION="011ababa95dd13ad";
-    static BING_VERIFICATION="B5D4DB87ECC982F1090EE4D2A0F70A62";
+    static GOOGLE_SITE_VERIFICATION = "8ogzYaST25BaliGB6QphngWQpu9sDnXHxNtZQ5dzg5Q";
+    static YANDIX_VERIFICATION = "011ababa95dd13ad";
+    static BING_VERIFICATION = "B5D4DB87ECC982F1090EE4D2A0F70A62";
+
+    static SOCIAL_URLS = [
+        { title: "LinkedIn", icon: "fa fa-linkedin", url: "https://www.linkedin.com/zattona" },
+        { title: "Facebook", icon: "fa fa-facebook", url: "https://www.facebook.com/zattona" },
+        { title: "Twitter", icon: "fa fa-twitter", url: "https://twitter.com/zattona" },
+        { title: "Pinterest", icon: "fa fa-pinterest", url: "https://in.pinterest.com/tutscoder" }];
 
 }

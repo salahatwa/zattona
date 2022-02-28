@@ -11,6 +11,7 @@ import { Constants } from "../../helpers/constants";
 export class SidebarComponent implements OnInit, OnDestroy {
 
   subscribtion: Subscription;
+  socials: any[] = Constants.SOCIAL_URLS;
 
   constructor(
     private configService: ConfigrationsService
@@ -20,9 +21,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
   defaultImage = Constants.DEFAULT_IMG;
 
   ngOnInit() {
-    if (window['FB']) {
-      window['FB'].XFBML.parse();
-    }
     this.getFeaturedPosts();
   }
 
