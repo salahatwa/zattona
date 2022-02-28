@@ -96,15 +96,15 @@
 
           <div class="col-xs-12 col-sm-12 col-xs-12">
             <div class="d-flex justify-content-center">
-              <pagination-controls
+              <ngb-pagination
                 *ngIf="posts?.length > 0"
-                responsive="true"
-                previousLabel="Prev"
-                nextLabel="Next"
+                [maxSize]="5"
+                [rotate]="true"
+                [ellipses]="false"
+                [boundaryLinks]="true"
+                [collectionSize]="page.totalItems"
                 (pageChange)="getPage($event)"
-                id="{{ page.id }}"
-              >
-              </pagination-controls>
+              ></ngb-pagination>
             </div>
           </div>
         </ng-container>

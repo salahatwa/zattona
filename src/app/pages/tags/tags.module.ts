@@ -4,8 +4,9 @@ import { TagsComponent } from "./tags.component";
 import { TagsListingComponent } from "./tags-listing/tags-listing.component";
 import { SidebarModule } from "../../shared/modules/sidebar.module";
 import { RouterModule, Routes } from "@angular/router";
-import { NgxPaginationModule } from "ngx-pagination";
 import { LazyLoadImageModule } from "ng-lazyload-image";
+import { NgbPaginationModule } from "@ng-bootstrap/ng-bootstrap";
+import { NgxPaginationModule } from "src/app/shared/modules/pagination/ngx-pagination.module";
 
 const routes: Routes = [
   {
@@ -27,7 +28,8 @@ const routes: Routes = [
     SidebarModule,
     RouterModule.forChild(routes),
     LazyLoadImageModule,
-    NgxPaginationModule,
+    NgbPaginationModule,
+    NgxPaginationModule
   ],
 })
-export class TagsModule {}
+export class TagsModule { }

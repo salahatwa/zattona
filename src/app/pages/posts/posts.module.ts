@@ -2,8 +2,9 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
+import { NgbPaginationModule } from "@ng-bootstrap/ng-bootstrap";
 import { LazyLoadImageModule } from 'ng-lazyload-image';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxPaginationModule } from "src/app/shared/modules/pagination/ngx-pagination.module";
 import { SharedPostModule } from "../../shared/modules/shared-post.module";
 import { SidebarModule } from "../../shared/modules/sidebar.module";
 import { PostDetailComponent } from "./post-detail/post-detail.component";
@@ -38,10 +39,11 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     LazyLoadImageModule,
-    NgxPaginationModule,
     SharedPostModule,
     SidebarModule,
     RouterModule.forChild(routes),
+    NgbPaginationModule,
+    NgxPaginationModule
   ],
 })
 export class PostsModule { }
