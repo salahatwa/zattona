@@ -12,6 +12,7 @@ import { LocalStorageService } from "../../services/local-storage.service";
 })
 export class FooterComponent implements OnInit, OnDestroy {
   emailPattern = Constants.EMAIL_PATTERN;
+  socials: any[] = Constants.SOCIAL_URLS;
 
   subscribtion: Subscription;
   constructor(

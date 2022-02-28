@@ -3,10 +3,10 @@
   padding-top: 45px;
   color: #ffffff;
 
-  p, a{
+  p,
+  a {
     color: #ffffff;
   }
-
 }
 
 .footer-widgets {
@@ -17,7 +17,7 @@
   margin-bottom: 30px;
   float: left;
 
-  ul{
+  ul {
     padding-left: 15px;
   }
 }
@@ -44,7 +44,7 @@
 .footer-bottom {
   padding: 25px 0;
   font-size: 13px;
-  border-top: 1px solid rgba(255, 255, 255, .06);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
   line-height: 36px;
 }
 
@@ -77,140 +77,4 @@
   color: #9a9a9a;
   font-size: 13px;
   line-height: 16px;
-}
-
-.newsletter {
-  display: table;
-  width: 100%;
-  margin-top: 5px;
-  font-size: 13px;
-}
-
-.newsletter .left {
-  display: table-cell;
-  vertical-align: top;
-}
-
-.newsletter input {
-  width: 100%;
-  font-size: 13px;
-  line-height: 18px;
-  // background: #3a3a3a;
-  border: 0 !important;
-  border: 1px solid #dfe0e6;
-  outline: none !important;
-  color: #ccc;
-  height: 33px;
-  padding: 10px 20px;
-  box-shadow: none;
-  border-radius: 3px 0 0 3px;
-  float: left;
-}
-
-.newsletter .right {
-  display: table-cell;
-  vertical-align: top;
-}
-
-.newsletter .newsletter-button {
-  background-color: #1273eb;
-  border: 1px solid #1273eb;
-}
-
-.newsletter .newsletter-button {
-  width: auto;
-  min-width: 100px;
-  padding: 6px 14px;
-  border-radius: 0 3px 3px 0;
-  line-height: 1.5;
-  outline: none !important;
-  font-size: 14px;
-  border: 0;
-  color: #fff;
-  float: left;
-  -moz-transition: .2s;
-  -webkit-transition: .2s;
-  transition: .2s;
-}
-
-.newsletter button {
-  background: #1273eb;
-}
-
-.f-widget-follow ul {
-  margin: 0;
-  padding: 0;
-}
-
-.f-widget-follow ul li {
-  display: inline-block;
-  margin-right: 5px;
-  margin-bottom: 5px;
-}
-
-.f-widget-follow ul li a {
-  width: 38px;
-  height: 38px;
-  color: #ccc;
-  font-size: 16px;
-  line-height: 38px;
-  text-align: center;
-  display: block;
-  border-radius: 2px;
-  background-color: #333;
-}
-
-.icon-facebook:before {
-  content: '\f09a';
-}
-.icon-twitter:before {
-  content: '\f099';
-}
-.icon-pinterest:before {
-  content: '\f231';
-}
-.icon-youtube:before {
-  content: '\f16a';
-}
-[class^="icon-"]:before, [class*=" icon-"]:before {
-  font-family: FontAwesome; 
-  font-style: normal;
-  font-weight: normal;
-  speak: never;
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1em;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.f-widget-follow ul li .facebook:hover {
-  background-color: #3B5998;
-  color: #fff!important;
-}
-.f-widget-follow ul li .twitter:hover {
-  background-color: #1DA1F2;
-  color: #fff!important;
-}
-.f-widget-follow ul li .pinterest:hover {
-  background-color: #bd081c;
-  color: #fff!important;
-}
-.f-widget-follow ul li .youtube:hover {
-  background-color: #f00;
-  color: #fff!important;
-}
-.f-widget-follow ul li a:hover {
-  text-decoration: none;
-}
-@media (max-width: 767px) {
-  #footer {
-    background-color: #222;
-    color: #ccc;
-    margin-top: 30px;
-    padding-top: 30px;
-  }
 }

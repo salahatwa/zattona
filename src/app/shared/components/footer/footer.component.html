@@ -40,49 +40,22 @@
       <div class="col-sm-4 col-xs-12">
         <div class="col-sm-12">
           <div class="row">
-            <div class="footer-widget f-widget-follow">
+            <div class="footer-widget">
               <div class="col-sm-12">
                 <div class="row">
                   <h4 class="title">Social Media</h4>
 
-                  <ul>
-                    <li>
+                  <ul class="list-inline">
+                    <li class="list-inline-item" *ngFor="let social of socials">
                       <a
-                        class="facebook"
+                        class="btn btn-icon btn-3 btn-primary btn-sm"
                         rel="noopener noreferrer"
-                        href="https://www.facebook.com/TutsCoder"
+                        href="{{ social?.url }}"
                         target="_blank"
+                        title="{{ social?.title }}"
                       >
-                        <i class="icon-facebook"></i
-                      ></a>
-                    </li>
-                    <li>
-                      <a
-                        class="twitter"
-                        rel="noopener noreferrer"
-                        href="https://twitter.com/tutscoder"
-                        target="_blank"
-                        ><i class="icon-twitter"></i
-                      ></a>
-                    </li>
-                    <li>
-                      <a
-                        class="youtube"
-                        rel="noopener noreferrer"
-                        href="https://www.youtube.com/channel/UCmObcNnWeVBlSeO_iQhsRcA"
-                        target="_blank"
-                        ><i class="icon-youtube"></i
-                      ></a>
-                    </li>
-
-                    <li>
-                      <a
-                        class="pinterest"
-                        rel="noopener noreferrer"
-                        href="https://in.pinterest.com/tutscoder"
-                        target="_blank"
-                        ><i class="icon-pinterest"></i
-                      ></a>
+                        <i class="{{ social?.icon }}"></i>
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -96,7 +69,7 @@
           <div class="row">
             <p>Subscribe here to get interesting stuff and updates!</p>
             <form>
-              <div class="newsletter">
+              <!-- <div class="newsletter">
                 <div class="left">
                   <input
                     type="email"
@@ -127,7 +100,22 @@
                     Subscribe
                   </button>
                 </div>
+              </div> -->
+           
+              <div class="input-group input-group-sm mb-3">
+                <input  type="email"
+                name="email"
+                #email
+                id="email"
+                [pattern]="emailPattern"
+                placeholder="Email"
+                required
+                class="form-control">
+                <div class="input-group-append">
+                  <button class="btn btn-primary btn-sm" type="button" (click)="addSubscribe(email.value)">Subscribe</button>
+                </div>
               </div>
+
             </form>
           </div>
           <div class="row">
