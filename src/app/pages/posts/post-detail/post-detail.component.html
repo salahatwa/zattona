@@ -58,7 +58,7 @@
 
                   <div
                     class="blog-post-content"
-                    [innerHtml]="post?.formatContent"
+                    [innerHtml]="post?.formatContent | sanitizeHtml"
                   ></div>
                 </div>
               </div>

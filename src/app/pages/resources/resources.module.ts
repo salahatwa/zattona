@@ -17,6 +17,7 @@ import { ImageFromHtmlComponent } from './tools/image-from-html/image-from-html.
 import { TemplateResultComponent } from './tools/image-from-html/template-result/template-result.component';
 import { TagsComponent } from './tags/tags.component';
 import { FilterPipe } from "src/app/shared/pipes/array.filter.pipe";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 // import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 const routes: Routes = [
@@ -90,6 +91,6 @@ const routes: Routes = [
     FilterPipe
   ],
   providers:[FilterPipe],
-  imports: [CommonModule,ReactiveFormsModule,FormsModule, TabsModule, NgxKjuaModule, LazyLoadImageModule, RouterModule.forChild(routes)],
+  imports: [CommonModule,ReactiveFormsModule,FormsModule,NgbModule, TabsModule, NgxKjuaModule, LazyLoadImageModule, RouterModule.forChild(routes)],
 })
 export class ResourcesModule { }

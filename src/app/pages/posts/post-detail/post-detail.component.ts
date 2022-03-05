@@ -34,7 +34,9 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
     private elRef: ElementRef,
     private renderer: Renderer2,
     private clipboard: Clipboard
-  ) { }
+  ) {
+
+  }
   post: PostDetailVO;
   highlighted: boolean = false;
 
@@ -47,30 +49,59 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
    */
   ngAfterViewChecked() {
     if (this.post?.formatContent) {
-      this.elRef.nativeElement.querySelectorAll('pre').forEach(element => {
-        const button = this.renderer.createElement('button');
-        this.renderer.addClass(button, 'copy-btn');
-        this.renderer.listen(button, 'click', (event) => {
-          this.clipboard.copy(element?.querySelector('code').innerText);
-        });
-        const text = this.renderer.createText('Copy');
-        const div = this.renderer.createElement('div');
-        this.renderer.setStyle(div, 'position', 'absolute');
-        this.renderer.setStyle(div, 'right', '0');
-        this.renderer.setStyle(div, 'float', 'right');
-        this.renderer.appendChild(div, button);
-        this.renderer.appendChild(button, text);
-        this.renderer.appendChild(element, div);
-        this.renderer.insertBefore(element, div, element?.querySelector('code'));
-      });
+      this.updateToc();
+      this.addCopyBtn();
     }
+
+    this.route.fragment.subscribe((fragment: string) => {
+      if (fragment && document.getElementById(fragment) != null) {
+        document.getElementById(fragment).scrollIntoView({ behavior: "smooth" });
+      }
+    });
   }
+
+  /**
+   * Update table of content add fragment attr
+   * Update href
+   */
+  updateToc() {
+    this.elRef.nativeElement.querySelectorAll('a').forEach(element => {
+      let oldLink = element.getAttribute('href');
+      if (oldLink.startsWith('#')) {
+        let fragment = oldLink.substring(1, oldLink.length);
+        element.setAttribute("fragment", fragment);
+        let path = "/post/" + this.route.snapshot.url.join('/') + oldLink;
+        element.setAttribute("href", path);
+      }
+    });
+  }
+
+  addCopyBtn() {
+    this.elRef.nativeElement.querySelectorAll('pre').forEach(element => {
+      const button = this.renderer.createElement('button');
+      this.renderer.addClass(button, 'copy-btn');
+      this.renderer.listen(button, 'click', (event) => {
+        this.clipboard.copy(element?.querySelector('code').innerText);
+      });
+      const text = this.renderer.createText('Copy');
+      const div = this.renderer.createElement('div');
+      this.renderer.setStyle(div, 'position', 'absolute');
+      this.renderer.setStyle(div, 'right', '0');
+      this.renderer.setStyle(div, 'float', 'right');
+      this.renderer.appendChild(div, button);
+      this.renderer.appendChild(button, text);
+      this.renderer.appendChild(element, div);
+      this.renderer.insertBefore(element, div, element?.querySelector('code'));
+    });
+  }
+
+
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
 
       this.ngxService.start();
-      this.postService.getByUsingSlug(params["slug"], false, true).pipe(finalize(() => {
+      this.postService.getByUsingSlug(params["slug"], false, false).pipe(finalize(() => {
         this.ngxService.stop();
       })).subscribe((post) => {
         this.post = post?.data;
@@ -79,7 +110,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
           title: `${this.post.title} ` + Constants.SITE_PREFIX,
           description: `${this.post?.metaDescription}`,
           image: `${this.post?.thumbnail}`,
-          keywords:`${this.post?.metaKeywords}`,
+          keywords: `${this.post?.metaKeywords}`,
         });
       });
     });
