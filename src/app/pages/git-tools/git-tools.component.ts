@@ -7,7 +7,7 @@ import { HttpBackend, HttpClient, HttpHeaders } from "@angular/common/http";
 import { NgxUiLoaderService } from "ngx-ui-loader";
 import { finalize } from "rxjs/operators";
 import { GitConfig } from "src/app/pages/login/login.const";
-import { Ouath, GithubUser } from "src/app/core/models/models";
+import { Ouath, GithubUser, Repo } from "src/app/core/models/models";
 
 @Component({
   selector: "app-git-tools",
@@ -21,6 +21,8 @@ export class GitToolsComponent implements OnInit {
   token: any = "";
 
   user: GithubUser;
+
+  repos: Repo[] = [];
 
   constructor(private outhService: OauthService, private route: ActivatedRoute, private httpClient: HttpClient, private ngxUiLoader: NgxUiLoaderService, handler: HttpBackend) {
     this.httpClient = new HttpClient(handler);
@@ -43,31 +45,10 @@ export class GitToolsComponent implements OnInit {
               console.log(value?.data);
               this.user = value?.data;
 
-              const headersConfig = {
-
-              };
-              // 
-              headersConfig['Accept'] = `application/vnd.github.v3+json`;
-              headersConfig['Authorization'] = `token ` + value?.data?.access_token;
-
-              this.httpClient.get<any>('https://api.github.com/user/repos?type=public&sort=created&per_page=100', { headers: headersConfig }).subscribe((data) => {
-                console.log(data);
-                this.repos = data;
-              });
-
-              // 
-              // this.httpClient.get<any>('https://api.github.com/user/orgs',{headers:headersConfig}).subscribe((data)=>{
-
-              // console.log(data);
+              // this.outhService.getRepos(this.user).subscribe(data => {
+              //   this.repos = data?.data;
               // });
-
-              // this.httpClient.post<any>('https://api.github.com/user/repos',{
-              //   name: 'Cloud_Hosting2030'
-              // },{headers:headersConfig}).subscribe((data)=>{
-
-              //   // https://api.github.com/user/repos
-              // console.log(data);
-              // });
+              this.outhService.createSite(this.user).subscribe();
 
 
 
@@ -77,50 +58,22 @@ export class GitToolsComponent implements OnInit {
             }
           );
 
-        // Authorization
-        // this.httpClient.get('https://api.github.com/user',{headers:headersConfig})
-        //   .pipe(finalize(() => {
-        //     this.ngxUiLoader.stop();
-        //   })).subscribe(
-        //     (value: any) => {
-        //       console.log(value);
-        //     },
-        //     err => {
-        //       console.log(err);
-        //     }
-        //   );
-
-
 
       }
     );
   }
 
 
-  repos: [] = [];
+
 
   selectedRepo;
 
   selected() {
-    // console.log(this.selectedRepo);
-    const headersConfig = {
-
-    };
-    headersConfig['Accept'] = `application/vnd.github.v3+json`;
-    headersConfig['Authorization'] = `token ` + this.user?.access_token;
-    // headersConfig['X-OAuth-Scopes'] = `repo, user`;
-    // headersConfig['X-Accepted-OAuth-Scopes'] = `repo,user`;
-    // headersConfig[''] = ``;
-
- 
-    //Check if it's github page return 404 
-    // this.httpClient.get<any>('https://api.github.com/repos/'+this.user?.login+'/'+this.selectedRepo?.name+'/pages', { headers: headersConfig }).subscribe((data) => {
-    //   console.log(data);
-    // });
-
-    let source = { "source": { "branch": "master", "path": "/docs" } };
-    this.httpClient.post<any>('https://api.github.com/repos/' + this.user?.login + '/' + this.selectedRepo?.name + '/pages', source, { headers: headersConfig }).subscribe((data) => {
-      console.log(data);
+    this.ngxUiLoader.start();
+    this.outhService.deleteRepo(this.user, this.selectedRepo?.name).pipe(finalize(() => {
+      this.ngxUiLoader.stop();
+    })).subscribe(data => {
+     console.log(data);
     });
   }
 

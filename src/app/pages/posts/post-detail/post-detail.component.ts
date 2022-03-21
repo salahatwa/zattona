@@ -50,6 +50,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
   ngAfterViewChecked() {
     if (this.post?.formatContent) {
       this.updateToc();
+      this.updateTable();
       this.addCopyBtn();
     }
 
@@ -73,6 +74,22 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
         let path = "/post/" + this.route.snapshot.url.join('/') + oldLink;
         element.setAttribute("href", path);
       }
+    });
+  }
+
+
+  /**
+   * Update table adding class to table tag
+   */
+   updateTable() {
+    this.elRef.nativeElement.querySelectorAll('table').forEach(element => {
+      this.renderer.addClass(element, 'table');
+      this.renderer.addClass(element, 'table-bordered');
+      this.renderer.addClass(element, 'table-hover');    
+    });
+
+    this.elRef.nativeElement.querySelectorAll('thead').forEach(element => {
+      this.renderer.addClass(element, 'thead-light');   
     });
   }
 

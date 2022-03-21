@@ -22,6 +22,11 @@ export interface Ouath {
     refresh_token?: string;
 }
 
+export interface Repo {
+    full_name?: string;
+    status?: string;
+    html_url?: string;
+}
 
 export interface GithubUser {
     access_token?: string;
