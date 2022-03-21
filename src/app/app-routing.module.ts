@@ -66,7 +66,8 @@ const routes: Routes = [
       anchorScrolling: "enabled",
       enableTracing: false,
       relativeLinkResolution: "legacy",
-      onSameUrlNavigation:"reload"
+      onSameUrlNavigation:"reload",
+      // scrollOffset: [0, -60]
     }),
   ],
   exports: [RouterModule],
