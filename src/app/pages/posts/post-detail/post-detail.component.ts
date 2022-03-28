@@ -11,7 +11,6 @@ import { NgForm } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { NgxUiLoaderService } from "ngx-ui-loader";
 import { finalize } from "rxjs/operators";
-import { UserService } from "src/app/core/services/api";
 import { PostService } from "src/app/core/services/post.service";
 import { Constants } from "src/app/shared/helpers/constants";
 import { SeoService } from "src/app/shared/services/seo.service";
@@ -29,7 +28,6 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
     private route: ActivatedRoute,
     private postService: PostService,
     private seoService: SeoService,
-    private userService: UserService,
     private ngxService: NgxUiLoaderService,
     private elRef: ElementRef,
     private renderer: Renderer2,
@@ -42,7 +40,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
 
   hideme: any = {};
   relatedPosts: any = [];
-  emailPattern = Constants.EMAIL_PATTERN;
+  
   defaultImage = Constants.DEFAULT_IMG;
   /**
    * Highlight blog post when it's ready
@@ -137,7 +135,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
 
   commentData: any = {};
   replyData: any = {};
-  subscriberEmail: any = {};
+ 
   addComment(commentForm: NgForm, data) {
     // if (commentForm.invalid) {
     //   return;
@@ -161,14 +159,5 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
     //     alert("Comment added");
     //   });
   }
-  emailError: any = "";
-  addSubscribe(form: NgForm, email) {
-    if (form.invalid) {
-      return;
-    }
-
-    this.userService.subscribe(email).subscribe((response) => {
-      console.log(response);
-    });
-  }
+ 
 }

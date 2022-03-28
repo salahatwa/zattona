@@ -1,0 +1,39 @@
+<ng-container *ngFor="let alert of alerts">
+  <ng-container *ngIf="alert.alertType === alertType.DEFAULT">
+    <ng-container
+      [ngTemplateOutlet]="default"
+      [ngTemplateOutletContext]="{ alert: alert }"
+    ></ng-container>
+  </ng-container>
+  <ng-container *ngIf="alert.alertType === alertType.ZCUSTOM">
+    <ng-container
+      [ngTemplateOutlet]="alinma"
+      [ngTemplateOutletContext]="{ alert: alert }"
+    ></ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #default let-alert="alert">
+  <div class="{{ cssClass(alert) }}">
+    <span class="alert-inner--icon"
+      ><i class="{{ iconClass(alert) }}"></i
+    ></span>
+    <span class="alert-inner--text"> {{ alert.message }}</span>
+  </div>
+</ng-template>
+
+<ng-template #alinma let-alert="alert">
+  <div class="{{ cssClass(alert) }}">
+    <div class="media">
+      <span class="alert-inner--icon"
+        ><i class="{{ iconClass(alert) }}"></i
+      ></span>
+      <span class="alert-inner--text">
+        <div
+          class="media-body align-self-center"
+          [innerHTML]="alert.message"
+        ></div>
+      </span>
+    </div>
+  </div>
+</ng-template>

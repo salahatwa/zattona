@@ -6,6 +6,7 @@ import { NgbPaginationModule } from "@ng-bootstrap/ng-bootstrap";
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { ShareButtonsModule } from "src/app/shared/modules/ngx-sharebuttons/buttons/share-buttons.module";
 import { NgxPaginationModule } from "src/app/shared/modules/pagination/ngx-pagination.module";
+import { SubscribeModule } from "src/app/shared/modules/subscribe/subscribe.module";
 import { SharedPostModule } from "../../shared/modules/shared-post.module";
 import { SidebarModule } from "../../shared/modules/sidebar.module";
 import { PostDetailComponent } from "./post-detail/post-detail.component";
@@ -41,6 +42,7 @@ const routes: Routes = [
     FormsModule,
     LazyLoadImageModule,
     SharedPostModule,
+    SubscribeModule,
     SidebarModule,
     RouterModule.forChild(routes),
     NgbPaginationModule,

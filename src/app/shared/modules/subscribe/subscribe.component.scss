@@ -1,0 +1,47 @@
+.subscribe-widget .button {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.subscribe-widget .newsletter-icon {
+  color: rgba(0, 0, 0, 0.2);
+  font-size: 40px;
+  display: block;
+  margin: 0 0 20px;
+  line-height: 0.8;
+}
+
+.icon-envelope:before {
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  content: "\f2b7";
+}
+
+.subscribe-widget .subscribe-input {
+  padding: 8px 30px;
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+}
+
+.subscribe-widget .widget-inner-wrap {
+  text-align: center;
+}
+
+// Post newletter
+#post-newsletter {
+  padding: 30px;
+  border-width: 1px;
+  background: #fafafa;
+  margin-top: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  margin-bottom: 50px;
+}

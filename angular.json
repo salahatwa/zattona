@@ -10,8 +10,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss",
-          "spec": false
+          "style": "scss"
         }
       },
       "root": "",
@@ -42,7 +41,6 @@
               "src/e0fabaf12bf265c1623de7399d91ed87.txt"
             ],
             "styles": [
-              "src/assets/scss/vendor/nucleo/css/nucleo.css",
               "src/assets/scss/vendor/font-awesome/css/font-awesome.min.css",
               "src/styles.scss",
               "src/assets/scss/argon.scss"

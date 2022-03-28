@@ -17,9 +17,9 @@
 .copy-btn.active,
 .open .dropdown-toggle.copy-btn {
   background-color: #1273eb !important;
-  color: #fff!important;
-  border:none;
-  box-shadow: inset 0 0 0 100px #0e5cbc!important;
+  color: #fff !important;
+  border: none;
+  box-shadow: inset 0 0 0 100px #0e5cbc !important;
   opacity: 1.5;
 }
 
@@ -27,7 +27,6 @@
   line-height: 1;
   border-bottom: 1px solid #e5e5e5;
 }
-
 
 .blog-post {
   margin-bottom: 4rem;
@@ -52,105 +51,6 @@
   color: #999;
 }
 
-
-// Post newletter
-#post-newsletter {
-  padding: 30px;
-  border-width: 1px;
-  background: #fafafa;
-  margin-top: 50px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 2px;
-  margin-bottom: 50px;
-}
-
-.subscribe-widget .widget-inner-wrap {
-  text-align: center;
-}
-
-.subscribe-widget .newsletter-icon {
-  color: rgba(0, 0, 0, 0.2);
-  font-size: 40px;
-  display: block;
-  margin: 0 0 20px;
-  line-height: 0.8;
-}
-
-.icon-envelope:before {
-  font-family: FontAwesome;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  display: inline-block;
-  content: "\f0e0";
-}
-
-.subscribe-widget .subscribe-widget-content {
-  margin-bottom: 20px;
-}
-
-.subscribe-widget .subscribe-widget-content h4 {
-  font-size: 15px;
-  position: relative;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-}
-
-.subscribe-widget .subscribe-widget-content h4:after {
-  content: "";
-  position: absolute;
-  width: 50px;
-  height: 1px;
-  background-color: rgba(0, 0, 0, 0.1);
-  bottom: 0;
-  left: 50%;
-  right: auto;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-  transition: 0.15s;
-}
-
-.subscribe-widget .subscribe-widget-content h3 {
-  font-size: 28px;
-  color: #2c2f34;
-  margin-bottom: 10px;
-}
-
-.subscribe-widget form {
-  position: relative;
-}
-
-.subscribe-widget form:before {
-  font-size: 15px;
-  position: absolute;
-  left: 12px;
-  top: 10px;
-  color: rgba(0, 0, 0, 0.2);
-  font-size: 18px;
-  content: "\f0e0";
-  font-family: FontAwesome;
-}
-
-.screen-reader-text {
-  clip: rect(1px, 1px, 1px, 1px);
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-}
-
-.subscribe-widget .subscribe-input {
-  padding: 8px 30px;
-  width: 100%;
-  text-align: center;
-  font-size: 13px;
-}
-
 textarea,
 input,
 select {
@@ -162,11 +62,6 @@ select {
   border-radius: 2px;
   transition: background 0.3s, border 0.3s;
   max-width: 100%;
-}
-
-.subscribe-widget .button {
-  margin-top: 10px;
-  width: 100%;
 }
 
 // Post category

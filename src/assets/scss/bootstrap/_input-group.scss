@@ -85,7 +85,8 @@
   }
 }
 
-.input-group-prepend { margin-right: -$input-border-width; }
+.input-group-prepend { margin-right: -$input-border-width;
+   }
 .input-group-append { margin-left: -$input-border-width; }
 
 
@@ -132,6 +133,13 @@
   font-size: $font-size-lg;
   line-height: $input-line-height-lg;
   @include border-radius($input-border-radius-lg);
+}
+
+.input-group-text.is-invalid {
+  border-color: #fb6340;
+}
+.input-group-text.is-valid {
+  border-color: #2dce89;
 }
 
 .input-group-sm > .form-control,
