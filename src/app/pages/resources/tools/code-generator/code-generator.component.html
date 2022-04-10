@@ -268,126 +268,95 @@
             <h3>
               <span class="font-weight-light">Generator</span>
             </h3>
-            <form>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input
-                      type="email"
-                      class="form-control form-control-alternative"
-                      id="exampleFormControlInput1"
-                      placeholder="name@example.com"
-                    />
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      placeholder="Regular"
-                      class="form-control form-control-alternative"
-                      disabled=""
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <div class="input-group input-group-alternative mb-4">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"
-                          ><i class="ni ni-zoom-split-in"></i
-                        ></span>
-                      </div>
-                      <input
-                        class="form-control form-control-alternative"
-                        placeholder="Search"
-                        type="text"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <div class="input-group input-group-alternative mb-4">
-                      <input
-                        class="form-control"
-                        placeholder="Birthday"
-                        type="text"
-                      />
-                      <div class="input-group-append">
-                        <span class="input-group-text"
-                          ><i class="ni ni-zoom-split-in"></i
-                        ></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group has-success">
-                    <input
-                      type="text"
-                      placeholder="Success"
-                      class="form-control form-control-alternative is-valid"
-                    />
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group has-danger">
-                    <input
-                      type="email"
-                      placeholder="Error Input"
-                      class="form-control form-control-alternative is-invalid"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <div class="" ngbDropdown>
-                      <button
-                        class="btn btn-secondary dropdown-toggle"
-                        type="button"
-                        id="dropdownMenuButton"
-                        ngbDropdownToggle
-                      >
-                        Regular
-                      </button>
-                      <div
-                        class=""
-                        aria-labelledby="dropdownMenuButton"
-                        ngbDropdownMenu
-                      >
-                        <a class="dropdown-item" href="javascript:void(0)"
-                          >Action</a
-                        >
-                        <a class="dropdown-item" href="javascript:void(0)"
-                          >Another action</a
-                        >
-                        <a class="dropdown-item" href="javascript:void(0)"
-                          >Something else here</a
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-12">
+            <form #generatorF="ngForm" (ngSubmit)="onSubmit(generatorF)">
+              <fieldset ngModelGroup="options">
                 <div class="row">
-                  <div class="col-12">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control form-control-alternative"
+                        id="authorName"
+                        placeholder="Author Name"
+                        name="authorName"
+                        [(ngModel)]="formData.options.authorName"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control form-control-alternative"
+                        id="s"
+                        placeholder="Package Name"
+                        [(ngModel)]="formData.options.packageName"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control form-control-alternative"
+                        id="e"
+                        placeholder="ReturnUtil Success"
+                        [(ngModel)]="formData.options.returnUtilSuccess"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control form-control-alternative"
+                        id="authorName"
+                        placeholder="Author Name"
+                        name="authorName"
+                        [(ngModel)]="formData.options.authorName"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control form-control-alternative"
+                        id="s"
+                        placeholder="ReturnUtil Failure"
+                        [(ngModel)]="formData.options.returnUtilFailure"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control form-control-alternative"
+                        id="e"
+                        placeholder="ReturnUtil Success"
+                        [(ngModel)]="formData.options.returnUtilSuccess"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- <div class="row">
+                 
+              <div [ngbNavOutlet]="nav" class="mt-2"></div> -->
+
+                <div class="row">
+                  <div class="col-md-4">
                     <div class="form-group">
                       <label>Select Code</label>
                       <select
                         id="selectedTmpIds"
                         name="selectedTmpIds"
                         class="form-control"
-                        ngModel
+                        [(ngModel)]="formData.selectedTmpIds"
                         multiple
                         required
                       >
@@ -404,62 +373,145 @@
                       </select>
                     </div>
                   </div>
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Select Input Type</label>
+                      <select
+                        id="dataType"
+                        name="dataType"
+                        class="form-control"
+                        [(ngModel)]="formData.options.dataType"
+                        required
+                      >
+                        <option value="json">JSON</option>
+                        <option value="xml">XML</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <div
+                        class="custom-control custom-control-alternative custom-checkbox mb-3"
+                      >
+                        <input
+                          class="custom-control-input"
+                          id="isSwagger"
+                          name="isSwagger"
+                          type="checkbox"
+                          [(ngModel)]="formData.options.isSwagger"
+                        />
+                        <label class="custom-control-label" for="isSwagger"
+                          >isSwagger</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <div
+                        class="custom-control custom-control-alternative custom-checkbox mb-3"
+                      >
+                        <input
+                          class="custom-control-input"
+                          id="isLombok"
+                          name="isLombok"
+                          type="checkbox"
+                          [(ngModel)]="formData.options.isLombok"
+                        />
+                        <label class="custom-control-label" for="isLombok"
+                          >isLombok</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <textarea
+                      rows="6"
+                      class="form-control form-control-alternative"
+                      id="input"
+                      placeholder="Paste JSON or XML here"
+                      name="input"
+                      [(ngModel)]="formData.input"
+                    ></textarea>
+                  </div>
                 </div>
               </div>
 
-
-              <ul ngbNav #nav="ngbNav"  class="nav nav-pills justify-content-center">
-                <li [ngbNavItem]="1">
-                  <a ngbNavLink> <i class="ni ni-cloud-upload-96 mr-2"></i> One</a>
-                  <ng-template ngbNavContent>
-                    <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
-                      master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
-                      keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat
-                      salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-                  </ng-template>
-                </li>
-                <li [ngbNavItem]="2">
-                  <a ngbNavLink><i class="ni ni-cloud-upload-96 mr-2"></i> Two</a>
-                  <ng-template ngbNavContent>
-                    <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
-                      farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
-                      ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
-                      helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
-                      8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
-                      stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
-                  </ng-template>
-                </li>
-                <li [ngbNavItem]="3">
-                  <a ngbNavLink> <i class="ni ni-cloud-upload-96 mr-2"></i> Three</a>
-                  <ng-template ngbNavContent>
-                    <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi.
-                      Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
-                      Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna,
-                      egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec
-                      tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et
-                      magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget
-                      neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
-                  </ng-template>
-                </li>
-              </ul>
-              
-              <div [ngbNavOutlet]="nav" class="mt-2"></div>
+              <div class="col-12">
+                <button
+                  type="submit"
+                  class="btn btn-success w-100"
+                  id="startBtn"
+                  [disabled]="!generatorF?.valid"
+                >
+                  Generate
+                </button>
+              </div>
             </form>
           </div>
-          <div class="mt-5 py-5 border-top text-center">
+
+          <div *ngIf="results && results?.length > 0" class="mt-5 py-5 border-top text-center">
             <div class="row justify-content-center">
               <div class="col-lg-9">
-                <p>
-                  An artist of considerable range, Ryan — the name taken by
-                  Melbourne-raised, Brooklyn-based Nick Murphy — writes,
-                  performs and records all of his own music, giving it a warm,
-                  intimate feel with a solid groove structure. An artist of
-                  considerable range.
-                </p>
-                <a href="javascript:void(0)">Show more</a>
+                <ul
+                  ngbNav
+                  #nav="ngbNav"
+                  class="nav nav-pills justify-content-center"
+                  
+                >
+                  <li  *ngFor="let item of results;let i=index" [ngbNavItem]="i">
+                    <a ngbNavLink>
+                      <i class="ni ni-cloud-upload-96 mr-2"></i> {{ item?.className }}</a
+                    >
+                    <ng-template ngbNavContent>
+                     <!-- content here-->
+                     
+                     <div *ngIf="item && item?.results?.length > 0" class="mt-5 py-5 border-top text-center">
+                      <div class="row justify-content-center">
+                        <div class="col-lg-9">
+                          <ul
+                            ngbNav
+                            #nav="ngbNav"
+                            class="nav nav-pills justify-content-center"
+                            
+                          >
+                            <li  *ngFor="let tmp of item?.results;let i=index" [ngbNavItem]="i">
+                              <a ngbNavLink>
+                                <i class="ni ni-cloud-upload-96 mr-2"></i> {{ tmp?.tmpName }}</a
+                              >
+                              <ng-template ngbNavContent>
+                               <!-- content here-->
+                               <div class="terminal">
+                                <pre>{{ tmp?.tmpCode }}</pre>
+                              </div>
+                              </ng-template>
+                            </li>
+                          </ul>
+          
+                          <div [ngbNavOutlet]="nav" class="mt-2"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    </ng-template>
+                  </li>
+                </ul>
+
+                <div [ngbNavOutlet]="nav" class="mt-2"></div>
               </div>
             </div>
           </div>
+
+
+
         </div>
       </div>
     </div>

@@ -26,7 +26,7 @@ export class ToolsService {
      * Lists posts by category slug
      * 
      */
-    public generateCode(paramsInfo: ParamInfo): Observable<ApiMessage<GeneratedCode[]>> {
+    public generateCode(paramsInfo): Observable<ApiMessage<GeneratedCode[]>> {
 
         if (paramsInfo === null || paramsInfo === undefined) {
             throw new Error('Required parameter paramsInfo was null or undefined when calling generateCode.');

@@ -11,11 +11,36 @@ export interface GTemplate {
 }
 
 export interface ParamInfo {
-    json?: string;
-    selectedTmpIds: string[];
-    options: Map<StaticRangeInit, Object>;
+    input?: string;
+    selectedTmpIds?: [];
+    options?: {};
 }
 
+export interface ParamRqInfo {
+    input?: string;
+    selectedTmpIds?: [];
+    options?: Options;
+}
+
+export interface Options {
+    authorName?: string;
+    packageName?: string;
+    returnUtilSuccess?: string;
+    returnUtilFailure?: string;
+    ignorePrefix?: string;
+    dataType?: string;
+
+    tinyintTransType?: string;
+    timeTransType?: string;
+    nameCaseType?: string;
+
+    isSwagger?: boolean;
+    isLombok?: boolean;
+    isComment?: boolean;
+    isAutoImport?: boolean;
+    isWithPackage?: boolean;
+    isPackageType?: boolean;
+}
 
 export interface GeneratedCode {
     tableName?: string;
