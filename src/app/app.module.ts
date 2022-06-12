@@ -27,6 +27,7 @@ import { HighlightService } from "./shared/services/highlight.service";
 import { LocalStorageService } from "./shared/services/local-storage.service";
 import { SeoService } from "./shared/services/seo.service";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { GoogleAnalyticsGTagComponent } from "./analytics.component";
 
 
 
@@ -34,6 +35,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     ...routedComponents,
     AppComponent,
+    GoogleAnalyticsGTagComponent,
     HeaderComponent,
     FooterComponent,
     ContactComponent,
